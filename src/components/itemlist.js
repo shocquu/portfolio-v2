@@ -15,6 +15,7 @@ const Item = styled.li`
     position: relative;
     margin-bottom: 10px;
     letter-spacing: 1px;
+    color: var(--textPrimary);
     padding-left: ${({ theme }) => theme.spacing(3)};
 
     &::before {

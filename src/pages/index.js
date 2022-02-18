@@ -1,15 +1,14 @@
 import React from 'react';
 import { Layout } from '../components';
-import { Hero, About, Work, Projects, Contact } from '../sections';
-import 'normalize.css';
+import { Hero, About, Work, Featured, Contact } from '../sections';
 
 const IndexPage = () => {
     return (
         <Layout>
             <Hero />
             <About />
-            <Work />
-            <Projects />
+            {/* <Work /> */}
+            <Featured />
             <Contact />
         </Layout>
     );

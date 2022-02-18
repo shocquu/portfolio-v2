@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const Wrapper = styled.div`
-    max-width: 300px;
+    max-width: 600px;
     position: relative;
-    transition: background-color 2s ease;
+    transition: background-color 1s ease;
     background-color: var(--primary);
+    border: 2px solid var(--bgColor);
+    user-select: none;
+    margin: 10px;
 
     & > div {
         width: 100%;
@@ -24,7 +27,7 @@ const Wrapper = styled.div`
         position: absolute;
         mix-blend-mode: screen;
         background-color: var(--bgColor);
-        transition: background-color 2s ease;
+        transition: background-color 1s ease;
     }
 
     &::after {
@@ -32,10 +35,11 @@ const Wrapper = styled.div`
         z-index: -1;
         width: 100%;
         height: 100%;
-        left: 10px;
-        top: 10px;
         position: absolute;
         background-color: var(--paper);
+        top: 10px;
+        ${({ direction }) =>
+            direction === 'right' ? 'right: 10px;' : 'left: 10px;'}
     }
 
     &:hover {
@@ -44,7 +48,6 @@ const Wrapper = styled.div`
         & > div {
             filter: none;
             mix-blend-mode: normal;
-            transition-delay: 0.2s;
         }
 
         &::before {
@@ -54,12 +57,12 @@ const Wrapper = styled.div`
     }
 `;
 
-const Profile = () => {
+const Slide = ({ image, alt, direction }) => {
     return (
-        <Wrapper>
-            <StaticImage
-                src='../images/profile.jpg'
-                alt='Profile picture'
+        <Wrapper direction={direction}>
+            <GatsbyImage
+                image={image}
+                alt={alt}
                 objectFit='cover'
                 loading='lazy'
             />
@@ -67,4 +70,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default Slide;

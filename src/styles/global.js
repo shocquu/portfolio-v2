@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import variables from './variables';
+import 'normalize.css';
 
 const GlobalStyle = createGlobalStyle`
     ${variables}
@@ -21,6 +22,11 @@ const GlobalStyle = createGlobalStyle`
     ::selection {
         background-color: var(--paper);
         color: #fff;
+    }
+
+    section {
+        margin: 0 auto;
+        padding: 100px 0;
     }
 
     h1, h2, h3, h4, h5, h6, p {

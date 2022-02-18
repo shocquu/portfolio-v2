@@ -8,7 +8,6 @@ const ContactSection = styled.section`
     align-items: flex-start;
     grid-column: 3 / span 6;
     grid-row: 5;
-    min-height: 100vh;
 `;
 
 const Contact = () => {

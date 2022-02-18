@@ -40,7 +40,50 @@ const mixins = {
         margin: 0;
     `,
     link: css`
-        margin: 1rem 2rem;
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        transition: var(--transition);
+        color: inherit;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: var(--primary);
+            outline: 0;
+        }
+    `,
+    underline: css`
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        transition: var(--transition);
+        color: inherit;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: var(--primary);
+            outline: 0;
+
+            &::after {
+                left: 0;
+                right: auto;
+                width: 100%;
+            }
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            width: 0px;
+            right: 0;
+            height: 1px;
+            opacity: 0.5;
+            position: absolute;
+            background: var(--primary);
+            transition: var(--transition);
+        }
     `,
 };
 

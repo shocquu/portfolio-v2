@@ -6,3 +6,5 @@ export { default as Stack } from './stack';
 export { default as Profile } from './profile';
 export { default as Itemlist } from './itemlist';
 export { default as Timeline } from './timeline';
+export { default as Slide } from './slide';
+export { default as Chip } from './chip';

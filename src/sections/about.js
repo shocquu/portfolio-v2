@@ -35,7 +35,7 @@ const About = () => {
                         I graduate I want to persude my carrer as a Software
                         Enginner. My goal is to build scalable and fast
                         applications while keeping user experience and visuals
-                        as clean as possible. To make it happen, I was exploring
+                        as clean as possible. To make it happen, I was learning
                         new technologies over the years.
                     </Typography>
                     <Typography tag='span' variant='body'>
