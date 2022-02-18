@@ -30,7 +30,7 @@ const Hero = () => {
                     variant='body1'
                     style={{ fontSize: '26px' }}
                 >
-                    I am <strong>Arkadiusz Liszka</strong>, an aspiring
+                    I am <strong>Arkadiusz Liszka</strong>; an aspiring
                     front-end developer focused on creating intuitive and
                     beautiful apps.
                 </Typography>

@@ -18,8 +18,8 @@ const AboutSection = styled.section`
 
 const Inner = styled.div`
     display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 50px;
+    grid-template-columns: 3fr auto;
+    gap: ${({ theme }) => theme.spacing(5)};
 `;
 
 const About = () => {
@@ -31,12 +31,12 @@ const About = () => {
             <Inner>
                 <Stack gap={2} direction='column'>
                     <Typography tag='p'>
-                        I'm currently studing at AGH University in Poland. When
-                        I graduate I want to persude my carrer as a Software
-                        Enginner. My goal is to build scalable and fast
+                        I'm currently studying at AGH University, located in
+                        Poland. When I graduate, I want to pursue my career as a
+                        Software Engineer. My goal is to build scalable and fast
                         applications while keeping user experience and visuals
-                        as clean as possible. To make it happen, I was learning
-                        new technologies over the years.
+                        as clean as possible. To make it happen, I learned new
+                        technologies over the years.
                     </Typography>
                     <Typography tag='span' variant='body'>
                         Here are a few of them I’ve been working with recently:

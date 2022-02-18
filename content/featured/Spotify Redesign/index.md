@@ -12,4 +12,4 @@ tags:
     - MongoDB
 ---
 
-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto, cumque, reiciendis commodi dignissimos aliquam dolor, dicta hic quasi vitae placeat neque? Eos nesciunt ipsa, iusto magni porro voluptatum in est.
+A [Spotify](https://www.spotify.com/) clone with an updated interface. Create an account and unlock access to available content. Save tracks, albums, artists and more.

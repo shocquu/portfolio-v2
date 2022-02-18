@@ -12,4 +12,4 @@ tags:
     - Blend4Web
 ---
 
-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto, cumque, reiciendis commodi dignissimos aliquam dolor, dicta hic quasi vitae placeat neque? Eos nesciunt ipsa, iusto magni porro voluptatum in est.
+A web app containing user-made colors for GTA Online. Browse premade swatches, sample them from an image or use the configurator for live preview. It comes with a bookmarklet to make saving colors to [Social Club](https://socialclub.rockstargames.com/) easier.

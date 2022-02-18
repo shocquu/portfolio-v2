@@ -20,7 +20,9 @@ const Contact = () => {
                 Got a question, proposal or project to realize? Use the button
                 below to get in touch.
             </Typography>
-            <Button>Say Hello</Button>
+            <Button href='mailto:arkadiusz.liszka13@gmail.com'>
+                Say Hello
+            </Button>
         </ContactSection>
     );
 };
