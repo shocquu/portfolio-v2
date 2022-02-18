@@ -36,9 +36,9 @@ const StyledButton = styled.button`
     }};
 `;
 
-const Button = ({ variant, color, children }) => (
+const Button = ({ href, variant, color, children }) => (
     <StyledButton variant={variant} color={color}>
-        {children}
+        {href ? <a href={href}>{children}</a> : children}
     </StyledButton>
 );
 

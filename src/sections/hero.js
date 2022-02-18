@@ -35,8 +35,10 @@ const Hero = () => {
                     beautiful apps.
                 </Typography>
                 <Stack>
-                    <Button>Get in touch</Button>
-                    <Button variant='outlined'>Resume</Button>
+                    <Button href='#contact'>Get in touch</Button>
+                    <Button variant='outlined' href='/resume.pdf'>
+                        Resume
+                    </Button>
                 </Stack>
             </Stack>
         </HeroSection>

@@ -8,7 +8,7 @@ const Title = css`
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
 
     &::before {
         content: '';
@@ -46,6 +46,7 @@ const Body2 = css`
 
 const Text = styled.div`
     text-align: ${({ align }) => (align ? align : 'inherit')};
+    ${({ gutterBottom }) => gutterBottom && 'margin-bottom: 16px'};
     ${({ variant }) => {
         switch (variant) {
             case 'title':
@@ -72,9 +73,16 @@ const Typography = ({
     variant = 'body',
     align,
     children,
+    gutterBottom,
     ...props
 }) => (
-    <Text as={tag} variant={variant} align={align} {...props}>
+    <Text
+        as={tag}
+        variant={variant}
+        align={align}
+        gutterBottom={gutterBottom ? true : false}
+        {...props}
+    >
         {children}
     </Text>
 );
