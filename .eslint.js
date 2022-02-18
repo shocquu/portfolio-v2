@@ -1,0 +1,1 @@
+import '@shocquu/eslint-config';
