@@ -1,10 +1,10 @@
 import React from 'react';
 
-const External = ({ size }) => (
+const External = ({ size = 24 }) => (
     <svg
-        width={`${size}px` || '24px'}
-        height={`${size}px` || '24px'}
-        viewBox={`0 0 ${size} ${size}` || '0 0 24 24'}
+        width={`${size}px`}
+        height={`${size}px`}
+        viewBox={`0 0 ${size} ${size}`}
         role='img'
         fill='currentColor'
         xmlns='http://www.w3.org/2000/svg'

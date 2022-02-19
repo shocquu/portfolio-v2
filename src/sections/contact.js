@@ -17,7 +17,7 @@ const Contact = () => {
                 Contact
             </Typography>
             <Typography tag='p' gutterBottom>
-                Got a question, proposal or project to realize? Use the button
+                Got a question, proposal, or project to realize? Use the button
                 below to get in touch.
             </Typography>
             <Button href='mailto:arkadiusz.liszka13@gmail.com'>

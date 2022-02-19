@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/macro';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
+import { Logo } from './icons';
+import colors from '../styles/colors';
 
 const Frame = styled.header`
     ${({ theme }) => theme.mixins.flexBetween};
-    margin: 0 60px;
+    background-color: ${({ theme }) =>
+        `rgba(${theme.hex2rgb(colors.mirage)}, 0.8)`};
     height: var(--navHeight);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 0 60px;
+    box-sizing: border-box;
 `;
 
 const Navbar = styled.nav`
     ${({ theme }) => theme.mixins.flexBetween};
+    width: 100%;
 
     ul {
         ${({ theme }) => theme.mixins.resetList};
@@ -22,9 +33,10 @@ const Links = styled.div`
 `;
 
 const Link = styled.a`
+    ${({ theme }) => theme.mixins.underline};
+    margin: ${({ theme }) => `${theme.spacing(1)} ${theme.spacing(3)}`};
     font-family: var(--fontSerif);
     color: var(--textPrimary);
-    margin: ${({ theme }) => `${theme.spacing(1)} ${theme.spacing(3)}`};
     font-size: 14px;
 
     &:hover {
@@ -32,7 +44,7 @@ const Link = styled.a`
     }
 `;
 
-const Logo = styled.div``;
+const LogoWrapper = styled.a``;
 
 const Menu = styled.div`
     ${({ theme }) => theme.mixins.flexBetween};
@@ -70,8 +82,10 @@ const Nav = ({ links }) => {
     return (
         <Frame>
             <Navbar>
-                <Logo>LOGO</Logo>
-                <Links>
+                <LogoWrapper href='/'>
+                    <Logo size={32} />
+                </LogoWrapper>
+                <Links role='menubar'>
                     <ul aria-hidden={!open}>
                         {links.map(({ name, href }, i) => (
                             <CSSTransition
@@ -81,7 +95,11 @@ const Nav = ({ links }) => {
                                 className='slide'
                             >
                                 <li style={{ transitionDelay: `${i * 100}ms` }}>
-                                    <Link href={href} rel='noopener noreferrer'>
+                                    <Link
+                                        href={href}
+                                        aria-label={name}
+                                        role='menuitem'
+                                    >
                                         {name}
                                     </Link>
                                 </li>

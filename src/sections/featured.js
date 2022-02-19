@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
@@ -82,14 +82,6 @@ const Featured = () => {
 
     const featured = data.featured.edges.filter(({ node }) => node);
 
-    useEffect(() => {
-        const links = Array.from(document.querySelectorAll('a'));
-        links.forEach((link) => {
-            link.setAttribute('target', '_blank');
-            link.setAttribute('rel', 'noopener noreferrer');
-        });
-    }, []);
-
     if (!featured) return null;
 
     return (
@@ -107,7 +99,7 @@ const Featured = () => {
                         <Slide
                             image={image}
                             alt={title}
-                            direction={i % 2 == 0 ? 'right' : 'left'}
+                            direction={i % 2 === 0 ? 'right' : 'left'}
                         />
                         <Details>
                             <Typography variant='caption' tag='h6'>

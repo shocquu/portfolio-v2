@@ -6,7 +6,7 @@ const ContainedButton = css`
     color: var(--textPrimary);
 
     &:hover {
-        background-color: var(--primaryLight);
+        background-color: var(--primaryDark);
     }
 `;
 
@@ -37,7 +37,7 @@ const StyledButton = styled.button`
 `;
 
 const Button = ({ href, variant, color, children }) => (
-    <StyledButton variant={variant} color={color}>
+    <StyledButton role='button' variant={variant} color={color}>
         {href ? <a href={href}>{children}</a> : children}
     </StyledButton>
 );

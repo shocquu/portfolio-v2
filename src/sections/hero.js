@@ -17,7 +17,7 @@ const HeroSection = styled.section`
 const Hero = () => {
     return (
         <HeroSection id='landing-page'>
-            <Stack direction='column' gap={3}>
+            <Stack direction='column' gap={4}>
                 <Typography
                     tag='h2'
                     variant='caption'

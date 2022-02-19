@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 
     section {
         margin: 0 auto;
-        padding: 100px 0;
+        padding-bottom: 100px;
     }
 
     h1, h2, h3, h4, h5, h6, p {
@@ -35,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a {
+        cursor: pointer;
         color: inherit;
         text-decoration: none;
         transition: var(--transition);
@@ -51,16 +52,19 @@ const GlobalStyle = createGlobalStyle`
     /* Transitions */
     .slide {
         opacity: 0;
+        visibility: hidden;
         transform: translateY(12px);
         transition: opacity 150ms var(--easing), transform 150ms var(--easing);
     }
     .slide.enter-done {
         opacity: 1;
+        visibility: visible;
         transform: translateY(0px);
         transition: opacity 150ms var(--easing), transform 150ms var(--easing);
     }
     .slide.exit-done {
         opacity: 0;
+        visibility: hidden;
         transform: translateY(12px);
         transition: opacity 150ms var(--easing), transform 150ms var(--easing);
     }
