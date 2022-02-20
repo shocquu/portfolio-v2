@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { CSSTransition } from 'react-transition-group';
 import { Logo } from './icons';
@@ -103,15 +103,17 @@ const HamburgerMenu = styled.div`
 `;
 
 const FrostedOverlay = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 8;
-    backdrop-filter: blur(10px);
-    background-color: ${({ theme }) =>
-        `rgba(${theme.hex2rgb(colors.mirage)}, 0.8)`};
+    @media screen and (${({ theme }) => theme.breakpoints.md}) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 8;
+        backdrop-filter: blur(10px);
+        background-color: ${({ theme }) =>
+            `rgba(${theme.hex2rgb(colors.mirage)}, 0.8)`};
+    }
 `;
 
 const Nav = ({ links }) => {
@@ -120,6 +122,16 @@ const Nav = ({ links }) => {
     const handleOpen = () => {
         setOpen((open) => !open);
     };
+
+    useEffect(() => {
+        const body = document.querySelector('body');
+        open && body.classList.add('blurred');
+
+        // delay to match animation
+        window.setTimeout(() => {
+            !open && body.classList.remove('blurred');
+        }, 300);
+    }, [open]);
 
     return (
         <>

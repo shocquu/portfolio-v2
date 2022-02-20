@@ -17,6 +17,10 @@ const GlobalStyle = createGlobalStyle`
         /*font-family: var(--font-sans);
         font-size: var(--fz-xl);*/
         line-height: 1.3;
+
+        &.blurred {
+            overflow: hidden;
+        }
     }
 
     ::selection {

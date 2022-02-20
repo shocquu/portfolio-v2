@@ -20,6 +20,8 @@ const ContactSection = styled.section`
 
 const Note = styled.span`
     margin: ${({ theme }) => `${theme.spacing(2)} 0`};
+    font-family: var(--fontSansSerif);
+    font-size: 14px;
     display: none;
 
     @media screen and (${({ theme }) => theme.breakpoints.md}) {

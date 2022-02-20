@@ -13,6 +13,10 @@ const HeroSection = styled.section`
         color: var(--textPrimary);
     }
 
+    button {
+        height: 100%;
+    }
+
     @media (${({ theme }) => theme.breakpoints.sm}) {
         button {
             width: 100%;

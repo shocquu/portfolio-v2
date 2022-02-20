@@ -58,12 +58,17 @@ const Wrapper = styled.div`
 
     @media (${({ theme }) => theme.breakpoints.md}) {
         position: absolute;
+        filter: blur(1px);
         z-index: -1;
-        filter: blur(8px);
-        opacity: 0.3;
-        height: 100%;
+        opacity: 0.5;
         width: 100%;
+        margin: 0;
         max-width: unset;
+        background-color: var(--paper);
+
+        &::after {
+            content: unset;
+        }
     }
 `;
 
