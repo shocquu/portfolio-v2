@@ -12,6 +12,16 @@ const HeroSection = styled.section`
     strong {
         color: var(--textPrimary);
     }
+
+    @media (${({ theme }) => theme.breakpoints.sm}) {
+        button {
+            width: 100%;
+
+            &:first-of-type {
+                margin-bottom: ${({ theme }) => theme.spacing(3)};
+            }
+        }
+    }
 `;
 
 const Hero = () => {

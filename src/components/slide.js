@@ -55,6 +55,16 @@ const Wrapper = styled.div`
             background-color: transparent;
         }
     }
+
+    @media (${({ theme }) => theme.breakpoints.md}) {
+        position: absolute;
+        z-index: -1;
+        filter: blur(8px);
+        opacity: 0.3;
+        height: 100%;
+        width: 100%;
+        max-width: unset;
+    }
 `;
 
 const Slide = ({ image, alt, direction }) => {

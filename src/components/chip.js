@@ -10,6 +10,10 @@ const StyledChip = styled.div`
     white-space: nowrap;
     font-weight: 500;
     cursor: default;
+
+    @media screen and (${({ theme }) => theme.breakpoints.sm}) {
+        padding: ${({ theme }) => theme.spacing(1)};
+    }
 `;
 
 const Chip = ({ name }) => <StyledChip>{name}</StyledChip>;

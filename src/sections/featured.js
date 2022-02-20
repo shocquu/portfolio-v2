@@ -13,6 +13,16 @@ const Details = styled.div`
     ${({ theme }) => theme.mixins.flexBetween};
     flex-direction: column;
     height: 100%;
+
+    @media (${({ theme }) => theme.breakpoints.lg}) {
+        grid-row-gap: ${({ theme }) => theme.spacing(3)};
+    }
+
+    @media (${({ theme }) => theme.breakpoints.md}) {
+        align-items: center !important;
+        direction: ltr;
+        text-align: center;
+    }
 `;
 
 const FeaturedSection = styled.section`
@@ -24,6 +34,7 @@ const FeaturedSection = styled.section`
 `;
 
 const FeaturedWrapper = styled.div`
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: ${({ theme }) => theme.spacing(3)};
@@ -44,6 +55,14 @@ const FeaturedWrapper = styled.div`
 
         ${Details} {
             align-items: flex-start;
+        }
+    }
+
+    @media (${({ theme }) => theme.breakpoints.md}) {
+        grid-template-columns: none;
+
+        &:first-of-type {
+            margin-top: ${({ theme }) => theme.spacing(3)};
         }
     }
 `;
@@ -85,7 +104,7 @@ const Featured = () => {
     if (!featured) return null;
 
     return (
-        <FeaturedSection id='projects'>
+        <FeaturedSection id='featured'>
             <Typography tag='h2' variant='title'>
                 Some of my projects
             </Typography>
@@ -93,21 +112,24 @@ const Featured = () => {
                 const { html, frontmatter } = node;
                 const { title, preview, repo, external, tags } = frontmatter;
                 const image = getImage(preview);
+                const direction = i % 2 === 0 ? 'right' : 'left';
 
                 return (
                     <FeaturedWrapper key={i}>
                         <Slide
                             image={image}
                             alt={title}
-                            direction={i % 2 === 0 ? 'right' : 'left'}
+                            direction={direction}
                         />
                         <Details>
-                            <Typography variant='caption' tag='h6'>
-                                Featured project
-                            </Typography>
-                            <Typography variant='subtitle' tag='h3'>
-                                {title}
-                            </Typography>
+                            <Stack direction='column' gap={1}>
+                                <Typography variant='caption'>
+                                    Featured project
+                                </Typography>
+                                <Typography variant='subtitle' tag='h3'>
+                                    {title}
+                                </Typography>
+                            </Stack>
                             <Typography
                                 tag='article'
                                 variant='body2'

@@ -8,7 +8,7 @@ const skills = [
     'TypeScript',
     'Next.js',
     'ReactJS',
-    'Vue.js',
+    'Gatsby',
 ];
 
 const AboutSection = styled.section`
@@ -20,6 +20,12 @@ const Inner = styled.div`
     display: grid;
     grid-template-columns: 3fr auto;
     gap: ${({ theme }) => theme.spacing(5)};
+
+    @media screen and (${({ theme }) => theme.breakpoints.md}) {
+        gap: ${({ theme }) => theme.spacing(4)};
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
 `;
 
 const About = () => {

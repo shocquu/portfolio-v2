@@ -4,11 +4,15 @@ import styled from 'styled-components';
 const List = styled.ul`
     display: grid;
     gap: 0px 10px;
-    grid-template-columns: repeat(2, minmax(140px, 240px));
+    grid-template-columns: repeat(2, minmax(110px, 240px));
     padding: 0px;
-    margin-left: 16px;
+    margin-left: ${({ theme }) => theme.spacing(3)};
     overflow: hidden;
     list-style: none;
+
+    @media (${({ theme }) => theme.breakpoints.md}) {
+        margin-left: ${({ theme }) => theme.spacing(2)};
+    }
 `;
 
 const Item = styled.li`

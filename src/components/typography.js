@@ -17,12 +17,28 @@ const Title = css`
         width: 26px;
         background: var(--primary);
     }
+
+    @media (${({ theme }) => theme.breakpoints.sm}) {
+        font-size: 26px;
+
+        &::before {
+            width: 12px;
+        }
+    }
+
+    @media (${({ theme }) => theme.breakpoints.xs}) {
+        font-size: 20px;
+    }
 `;
 
 const Subtitle = css`
     font-family: var(--fontSansSerif);
     color: var(--textPrimary);
     font-size: 24px;
+
+    @media (${({ theme }) => theme.breakpoints.sm}) {
+        font-size: 18px;
+    }
 `;
 
 const Caption = css`
@@ -30,6 +46,10 @@ const Caption = css`
     color: var(--primary);
     font-size: 14px;
     font-weight: 500;
+
+    @media (${({ theme }) => theme.breakpoints.sm}) {
+        font-size: 12px;
+    }
 `;
 
 const Body1 = css`
@@ -37,16 +57,22 @@ const Body1 = css`
     color: var(--textSecondary);
     font-size: 20px;
     line-height: 1.4;
+
+    @media screen and (${({ theme }) => theme.breakpoints.sm}) {
+        font-size: 16px;
+    }
 `;
 
 const Body2 = css`
     ${Body1}
     font-size: 18px;
+
+    @media (${({ theme }) => theme.breakpoints.sm}) {
+        font-size: 14px;
+    }
 `;
 
 const Text = styled.div`
-    text-align: ${({ align }) => (align ? align : 'inherit')};
-    ${({ gutterBottom }) => gutterBottom && 'margin-bottom: 16px'};
     ${({ variant }) => {
         switch (variant) {
             case 'title':
@@ -61,6 +87,9 @@ const Text = styled.div`
                 return Body1;
         }
     }}
+    ${({ fontSize }) => fontSize && `font-size: ${fontSize}px`};
+    ${({ gutterBottom }) => gutterBottom && 'margin-bottom: 16px'};
+    text-align: ${({ align }) => (align ? align : 'inherit')};
 
     a {
         ${({ theme }) => theme.mixins.underline};
@@ -72,14 +101,16 @@ const Typography = ({
     tag = 'div',
     variant = 'body',
     align,
-    children,
+    fontSize,
     gutterBottom,
+    children,
     ...props
 }) => (
     <Text
         as={tag}
         variant={variant}
         align={align}
+        fontSize={fontSize}
         gutterBottom={gutterBottom ? true : false}
         {...props}
     >

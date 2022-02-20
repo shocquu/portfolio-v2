@@ -52,6 +52,10 @@ const Wrapper = styled.div`
             background-color: transparent;
         }
     }
+
+    @media screen and (${({ theme }) => theme.breakpoints.sm}) {
+        max-width: 200px;
+    }
 `;
 
 const Profile = () => {

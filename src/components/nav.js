@@ -14,17 +14,11 @@ const Frame = styled.header`
     top: 0;
     z-index: 10;
     width: 100%;
-    padding: 0 60px;
+    padding: 0 64px;
     box-sizing: border-box;
-`;
 
-const Navbar = styled.nav`
-    ${({ theme }) => theme.mixins.flexBetween};
-    width: 100%;
-
-    ul {
-        ${({ theme }) => theme.mixins.resetList};
-        ${({ theme }) => theme.mixins.flexBetween};
+    @media screen and (${({ theme }) => theme.breakpoints.xl}) {
+        padding: 0 ${({ theme }) => theme.spacing(4)};
     }
 `;
 
@@ -34,19 +28,54 @@ const Links = styled.div`
 
 const Link = styled.a`
     ${({ theme }) => theme.mixins.underline};
-    margin: ${({ theme }) => `${theme.spacing(1)} ${theme.spacing(3)}`};
+    padding: ${({ theme }) => `${theme.spacing(1)} ${theme.spacing(3)}`};
     font-family: var(--fontSerif);
     color: var(--textPrimary);
-    font-size: 14px;
 
     &:hover {
         color: var(--primary);
     }
 `;
 
-const LogoWrapper = styled.a``;
+const Navbar = styled.nav`
+    ${({ theme }) => theme.mixins.flexBetween};
+    width: 100%;
+    font-size: 14px;
 
-const Menu = styled.div`
+    ul {
+        ${({ theme }) => theme.mixins.resetList};
+        ${({ theme }) => theme.mixins.flexBetween};
+    }
+
+    @media screen and (${({ theme }) => theme.breakpoints.sm}) {
+        ul {
+            background-color: var(--paper);
+            padding-top: var(--navHeight);
+            transition: var(--transition);
+            transition-delay: 150ms;
+            box-shadow: -4px 0px 24px rgb(0 0 0 / 30%);
+            justify-content: flex-start;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 0vw;
+            height: 100vh;
+            z-index: -1;
+            flex-direction: column;
+            font-size: 22px;
+
+            &[aria-hidden='false'] {
+                width: 80vw;
+            }
+        }
+
+        ${Link} {
+            padding: ${({ theme }) => `${theme.spacing(4)} 0`};
+        }
+    }
+`;
+
+const HamburgerMenu = styled.div`
     ${({ theme }) => theme.mixins.flexBetween};
     margin-left: ${({ theme }) => theme.spacing(3)};
     flex-direction: column;
@@ -62,6 +91,7 @@ const Menu = styled.div`
         transition: var(--transition);
         ${({ open }) => open && 'transform: translateY(100%);'}
     }
+
     & > div:last-of-type {
         width: 50%;
         height: 6px;
@@ -72,6 +102,18 @@ const Menu = styled.div`
     }
 `;
 
+const FrostedOverlay = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 8;
+    backdrop-filter: blur(10px);
+    background-color: ${({ theme }) =>
+        `rgba(${theme.hex2rgb(colors.mirage)}, 0.8)`};
+`;
+
 const Nav = ({ links }) => {
     const [open, setOpen] = useState(false);
 
@@ -80,47 +122,47 @@ const Nav = ({ links }) => {
     };
 
     return (
-        <Frame>
-            <Navbar>
-                <LogoWrapper href='/'>
-                    <Logo size={32} />
-                </LogoWrapper>
-                <Links role='menubar'>
-                    <ul aria-hidden={!open}>
-                        {links.map(({ name, href }, i) => (
-                            <CSSTransition
-                                key={i}
-                                in={open}
-                                timeout={100}
-                                className='slide'
-                            >
-                                <li style={{ transitionDelay: `${i * 100}ms` }}>
-                                    <Link
-                                        href={href}
-                                        aria-label={name}
-                                        role='menuitem'
+        <>
+            <Frame>
+                <Navbar>
+                    <a href='/'>
+                        <Logo size={32} />
+                    </a>
+                    <Links role='menubar'>
+                        <ul aria-hidden={!open}>
+                            {links.map(({ name, href }, i) => (
+                                <CSSTransition
+                                    key={i}
+                                    in={open}
+                                    timeout={100}
+                                    className='slide'
+                                >
+                                    <li
+                                        style={{
+                                            transitionDelay: `${i * 100}ms`,
+                                        }}
                                     >
-                                        {name}
-                                    </Link>
-                                </li>
-                            </CSSTransition>
-                        ))}
-                    </ul>
-                    <Menu onClick={handleOpen} open={open}>
-                        <div></div>
-                        <div></div>
-                    </Menu>
-                </Links>
-            </Navbar>
-        </Frame>
+                                        <Link
+                                            href={href}
+                                            aria-label={name}
+                                            role='menuitem'
+                                        >
+                                            {name}
+                                        </Link>
+                                    </li>
+                                </CSSTransition>
+                            ))}
+                        </ul>
+                        <HamburgerMenu onClick={handleOpen} open={open}>
+                            <div></div>
+                            <div></div>
+                        </HamburgerMenu>
+                    </Links>
+                </Navbar>
+            </Frame>
+            {open && <FrostedOverlay />}
+        </>
     );
 };
-
-const HamburgerMenu = () => (
-    <Menu>
-        <div></div>
-        <div></div>
-    </Menu>
-);
 
 export default Nav;

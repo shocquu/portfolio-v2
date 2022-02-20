@@ -8,3 +8,5 @@ export { default as Itemlist } from './itemlist';
 export { default as Timeline } from './timeline';
 export { default as Slide } from './slide';
 export { default as Chip } from './chip';
+export { default as Social } from './social';
+export { default as Footer } from './footer';

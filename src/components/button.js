@@ -34,6 +34,10 @@ const StyledButton = styled.button`
                 return ContainedButton;
         }
     }};
+
+    @media screen and (${({ theme }) => theme.breakpoints.sm}) {
+        font-size: 12px;
+    }
 `;
 
 const Button = ({ href, variant, color, children }) => (

@@ -1,28 +1,73 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Typography, Button } from '../components';
+import { Stack, Typography, Button, Social } from '../components';
 
 const ContactSection = styled.section`
     ${({ theme }) => theme.mixins.flexCenter};
+    grid-column: 5 / span 4 !important;
     flex-direction: column;
     text-align: center;
-    grid-column: 5 / span 4;
     grid-row: 5;
+
+    @media (${({ theme }) => theme.breakpoints.md}) {
+        grid-column: 3 / 11 !important;
+    }
+
+    @media (${({ theme }) => theme.breakpoints.sm}) {
+        grid-column: 2 / 12 !important;
+    }
+`;
+
+const Note = styled.span`
+    margin: ${({ theme }) => `${theme.spacing(2)} 0`};
+    display: none;
+
+    @media screen and (${({ theme }) => theme.breakpoints.md}) {
+        display: inline;
+    }
+`;
+
+const Email = styled.a`
+    ${({ theme }) => theme.mixins.underline};
+    right: ${({ theme }) => theme.spacing(5)};
+    transition: var(--transition);
+    color: var(--primary);
+    font-size: 14px;
+    z-index: 5;
+    position: fixed;
+    bottom: 20px;
+
+    @media screen and (${({ theme }) => theme.breakpoints.xl}) {
+        right: ${({ theme }) => theme.spacing(4)};
+        transform-origin: bottom right;
+        transform: rotate(90deg) translateY(100%);
+    }
+
+    @media screen and (${({ theme }) => theme.breakpoints.md}) {
+        display: none;
+    }
 `;
 
 const Contact = () => {
     return (
         <ContactSection id='contact'>
-            <Typography tag='h2' variant='title'>
-                Contact
-            </Typography>
-            <Typography tag='p' gutterBottom>
-                Got a question, proposal, or project to realize? Use the button
-                below to get in touch.
-            </Typography>
-            <Button href='mailto:arkadiusz.liszka13@gmail.com'>
-                Say Hello
-            </Button>
+            <Stack direction='column' gap={2}>
+                <Typography tag='h2' variant='title'>
+                    Contact
+                </Typography>
+                <Typography tag='p' gutterBottom>
+                    Got a question, proposal, or project to realize? Use the
+                    button below to get in touch.
+                </Typography>
+                <Button href='mailto:arkadiusz.liszka13@gmail.com'>
+                    Say Hello
+                </Button>
+                <Note> or find me on:</Note>
+                <Social />
+                <Email href='mailto:arkadiusz.liszka13@gmail.com'>
+                    arkadiusz.liszka13@gmail.com
+                </Email>
+            </Stack>
         </ContactSection>
     );
 };

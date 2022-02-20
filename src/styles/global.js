@@ -25,8 +25,13 @@ const GlobalStyle = createGlobalStyle`
     }
 
     section {
+        width: 100%;
         margin: 0 auto;
         padding-bottom: 100px;
+
+        @media screen and (${({ theme }) => theme.breakpoints.xl}) {
+            grid-column: 2 / 12 !important;
+        }
     }
 
     h1, h2, h3, h4, h5, h6, p {
