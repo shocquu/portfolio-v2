@@ -3,7 +3,7 @@ module.exports = {
         url: `https://arkadiuszliszka.site`,
         title: `Arkadiusz Liszka`,
         titleTemplate: '%s · Portfolio',
-        description: 'An aspiring web developer located in Poland',
+        description: 'An aspiring Web Developer located in Poland',
         image: '/portfolio.png',
     },
     plugins: [
@@ -38,6 +38,19 @@ module.exports = {
             options: {
                 name: 'projects',
                 path: `${__dirname}/content/projects`,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-google-gtag`,
+            options: {
+                trackingIds: [process.env.GATSBY_GA_TRACKING_ID],
+                gtagConfig: {
+                    anonymize_ip: true,
+                },
+                pluginConfig: {
+                    head: false,
+                    respectDNT: true,
+                },
             },
         },
     ],
