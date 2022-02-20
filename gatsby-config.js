@@ -41,6 +41,13 @@ module.exports = {
             },
         },
         {
+            resolve: `gatsby-plugin-google-fonts`,
+            options: {
+                fonts: [`raleway \:400,600`, `bitters \:400,500`],
+                display: 'swap',
+            },
+        },
+        {
             resolve: `gatsby-plugin-google-gtag`,
             options: {
                 trackingIds: [process.env.GATSBY_GA_TRACKING_ID],
