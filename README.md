@@ -28,4 +28,4 @@
 
 ## Acknowledgments
 
--   [Brittany Chiang](https://brittanychiang.com)
+-   [Brittany Chiang](https://github.com/bchiang7)
