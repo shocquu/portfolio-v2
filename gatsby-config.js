@@ -41,10 +41,18 @@ module.exports = {
             },
         },
         {
-            resolve: `gatsby-plugin-google-fonts`,
+            resolve: `gatsby-plugin-google-fonts-v2`,
             options: {
-                fonts: [`raleway \:400,600`, `bitters \:400,500`],
-                display: 'swap',
+                fonts: [
+                    {
+                        family: 'Raleway',
+                        weights: ['300', '400', '600'],
+                    },
+                    {
+                        family: 'Bitters',
+                        weights: ['400', '500'],
+                    },
+                ],
             },
         },
         {
