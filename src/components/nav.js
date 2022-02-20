@@ -28,7 +28,7 @@ const Links = styled.div`
 
 const Link = styled.a`
     ${({ theme }) => theme.mixins.underline};
-    padding: ${({ theme }) => `${theme.spacing(1)} ${theme.spacing(3)}`};
+    margin: ${({ theme }) => `${theme.spacing(1)} ${theme.spacing(3)}`};
     font-family: var(--fontSerif);
     color: var(--textPrimary);
 

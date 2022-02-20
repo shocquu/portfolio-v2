@@ -1,54 +1,33 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+<div id="top"></div>
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/shocquu/sketchy-reactjs">
+    <img src="https://raw.githubusercontent.com/shocquu/sketchy-notebook/0a8658cb5337e3a16840c906b37d1721c366dabd/public/logo.svg" alt="Logo" width="80" height="80">
   </a>
+  <h1 align="center">Sketchy Notebook</h3>
+  <p align="center">
+  Personal website inspired by Brittany Chiang's <a href="https://brittanychiang.com" target="_blank">portfolio</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted on <a href="https://www.gatsbyjs.com/products/cloud/" target="_blank">Gatsby Cloud</a>
 </p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+</div>
 
-## 🚀 Quick start
+<!-- ABOUT THE PROJECT -->
 
-1.  **Create a Gatsby site.**
+## About The Project
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+![preview](https://github.com/shocquu/portfolio-v2/blob/main/static/portfolio.png?raw=true)
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+### Built With
 
-2.  **Start developing.**
+-   [React.js](https://reactjs.org/)
+-   [Gatsby.js](https://www.gatsbyjs.org/)
+-   [Styled Components](https://styled-components.com/)
+-   [React Transition Group](https://reactcommunity.org/react-transition-group/)
+-   [React Helmet](https://github.com/nfl/react-helmet)
 
-    Navigate into your new site’s directory and start it up.
+<!-- ACKNOWLEDGMENTS -->
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+## Acknowledgments
 
-3.  **Open the code and start customizing!**
-
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.js` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+-   [Brittany Chiang](https://brittanychiang.com)
