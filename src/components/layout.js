@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { Nav, Footer } from './index';
+import { SEO, Nav, Footer } from './index';
 import GlobalStyle from '../styles/global';
 import theme from '../styles/theme';
 
@@ -47,14 +47,17 @@ const Layout = ({ children }) => {
     }, []);
 
     return (
-        <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <Nav links={links} />
-            <Main>
-                {children}
-                <Footer />
-            </Main>
-        </ThemeProvider>
+        <>
+            <SEO />
+            <ThemeProvider theme={theme}>
+                <GlobalStyle />
+                <Nav links={links} />
+                <Main>
+                    {children}
+                    <Footer />
+                </Main>
+            </ThemeProvider>
+        </>
     );
 };
 

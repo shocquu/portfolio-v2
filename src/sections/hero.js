@@ -50,8 +50,14 @@ const Hero = () => {
                 </Typography>
                 <Stack>
                     <Button href='#contact'>Get in touch</Button>
-                    <Button variant='outlined' href='/resume.pdf'>
-                        Resume
+                    <Button variant='outlined'>
+                        <a
+                            href='/resume.pdf'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
+                            Resume
+                        </a>
                     </Button>
                 </Stack>
             </Stack>

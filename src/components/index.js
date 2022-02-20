@@ -10,3 +10,4 @@ export { default as Slide } from './slide';
 export { default as Chip } from './chip';
 export { default as Social } from './social';
 export { default as Footer } from './footer';
+export { default as SEO } from './seo';

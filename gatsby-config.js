@@ -1,7 +1,10 @@
 module.exports = {
     siteMetadata: {
-        title: `Portfolio`,
-        siteUrl: `https://www.yourdomain.tld`,
+        url: `https://arkadiuszliszka.com`,
+        title: `Arkadiusz Liszka`,
+        titleTemplate: '%s · Arkadiusz Liszka',
+        description: 'An aspiring web developer located in Poland',
+        image: '/portfolio.png',
     },
     plugins: [
         'gatsby-plugin-styled-components',
