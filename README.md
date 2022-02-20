@@ -8,9 +8,9 @@
   </a>
   <h1 align="center">Portfolio v2</h3>
   <p align="center">
-  Personal website inspired by Brittany Chiang's <a href="https://brittanychiang.com" target="_blank">portfolio</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted on <a href="https://www.gatsbyjs.com/products/cloud/" target="_blank">Gatsby Cloud</a>
-</p>
-  <div align="center"> <a href="https://arkadiuszliszka.site" target="_blank">LIVE</a></div>
+    Personal website inspired by Brittany Chiang's <a href="https://brittanychiang.com" target="_blank">portfolio</a> built with <a href="https://www.gatsbyjs.org/"      target="_blank">Gatsby</a> and hosted on <a href="https://www.gatsbyjs.com/products/cloud/" target="_blank">Gatsby Cloud</a>
+  </p>
+  <p align="center"> <a href="https://arkadiuszliszka.site" target="_blank">LIVE</a></p>
 </div>
 
 
