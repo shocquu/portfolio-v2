@@ -140,8 +140,8 @@ const Nav = ({ links }) => {
                     <a href='/'>
                         <Logo size={32} />
                     </a>
-                    <Links role='menubar'>
-                        <ul aria-hidden={!open}>
+                    <Links>
+                        <ul aria-hidden={!open} role='menubar'>
                             {links.map(({ name, href }, i) => (
                                 <CSSTransition
                                     key={i}
@@ -150,15 +150,12 @@ const Nav = ({ links }) => {
                                     className='slide'
                                 >
                                     <li
+                                        role='menuitem'
                                         style={{
                                             transitionDelay: `${i * 100}ms`,
                                         }}
                                     >
-                                        <Link
-                                            href={href}
-                                            aria-label={name}
-                                            role='menuitem'
-                                        >
+                                        <Link href={href} aria-label={name}>
                                             {name}
                                         </Link>
                                     </li>

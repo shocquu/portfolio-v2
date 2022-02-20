@@ -20,6 +20,7 @@ const HeroSection = styled.section`
     @media (${({ theme }) => theme.breakpoints.sm}) {
         button {
             width: 100%;
+            height: unset;
 
             &:first-of-type {
                 margin-bottom: ${({ theme }) => theme.spacing(3)};

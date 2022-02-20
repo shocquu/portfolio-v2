@@ -1,8 +1,8 @@
 module.exports = {
     siteMetadata: {
-        url: `https://arkadiuszliszka.com`,
+        url: `https://arkadiuszliszka.site`,
         title: `Arkadiusz Liszka`,
-        titleTemplate: '%s · Arkadiusz Liszka',
+        titleTemplate: '%s · Portfolio',
         description: 'An aspiring web developer located in Poland',
         image: '/portfolio.png',
     },
@@ -12,7 +12,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
-                icon: 'src/images/icon.png',
+                icon: 'src/images/icon.svg',
             },
         },
         'gatsby-plugin-sharp',

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 const ContainedButton = css`
     background-color: ${({ color }) => (color ? color : 'var(--primary)')};
-    color: var(--textPrimary);
+    color: #fff;
 
     &:hover {
         background-color: var(--primaryDark);
@@ -11,6 +11,7 @@ const ContainedButton = css`
 `;
 
 const OutlinedButton = css`
+    font-weight: 600;
     color: ${({ color }) => (color ? color : 'var(--primary)')};
     border: ${({ color }) =>
         color ? `1px solid ${color}` : '1px solid var(--primary)'};
@@ -34,10 +35,6 @@ const StyledButton = styled.button`
                 return ContainedButton;
         }
     }};
-
-    @media screen and (${({ theme }) => theme.breakpoints.sm}) {
-        font-size: 12px;
-    }
 `;
 
 const Button = ({ href, variant, color, children }) => (
