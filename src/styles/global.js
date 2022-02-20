@@ -18,8 +18,10 @@ const GlobalStyle = createGlobalStyle`
         font-size: var(--fz-xl);*/
         line-height: 1.3;
 
-        &.blurred {
-            overflow: hidden;
+        @media screen and (${({ theme }) => theme.breakpoints.md}) {
+            &.blurred {
+                overflow: hidden;
+            }
         }
     }
 
