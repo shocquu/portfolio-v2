@@ -10,4 +10,4 @@ tags:
     - Illustrator
 ---
 
-Hand-drawn looking whiteboard allowing you to easily sketch your ideas on virtual paper. [Excalidraw](https://excalidraw.com/) inspired app and made with a help of [Redhwan Nacef's](https://www.youtube.com/c/RedhwanNacef) tutorial.
+Hand-drawn looking whiteboard allowing you to easily sketch your ideas on virtual paper. [Excalidraw](https://excalidraw.com/) inspired app made with a help of [Redhwan Nacef's](https://www.youtube.com/c/RedhwanNacef) tutorial.
