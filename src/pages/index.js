@@ -10,18 +10,22 @@ const Featured = React.lazy(() => import('../sections/featured'));
 const Contact = React.lazy(() => import('../sections/contact'));
 
 const IndexPage = () => {
+    const isSSR = typeof window === 'undefined';
+
     return (
-        <Suspense fallback={<Loader />}>
-            <Layout>
-                <LazyComponent>
-                    <Hero />
-                    <About />
-                    <Featured />
-                    <Contact />
-                    <Footer />
-                </LazyComponent>
-            </Layout>
-        </Suspense>
+        !isSSR && (
+            <Suspense fallback={<Loader />}>
+                <Layout>
+                    <LazyComponent>
+                        <Hero />
+                        <About />
+                        <Featured />
+                        <Contact />
+                        <Footer />
+                    </LazyComponent>
+                </Layout>
+            </Suspense>
+        )
     );
 };
 
