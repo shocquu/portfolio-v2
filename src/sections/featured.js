@@ -5,7 +5,7 @@ import { getImage } from 'gatsby-plugin-image';
 import { Typography, Slide, Stack, Chip } from '../components';
 import { GithubOutlined, External } from '../components/icons';
 
-const Link = styled.a`
+const IconLink = styled.a`
     ${({ theme }) => theme.mixins.link};
 `;
 
@@ -142,24 +142,24 @@ const Featured = () => {
                             </Stack>
                             <Stack gap={2}>
                                 {repo && (
-                                    <Link
+                                    <IconLink
                                         href={repo}
                                         target='_blank'
                                         rel='noopener noreferrer'
                                         aria-label='GitHub Link'
                                     >
                                         <GithubOutlined size={24} />
-                                    </Link>
+                                    </IconLink>
                                 )}
                                 {external && (
-                                    <Link
+                                    <IconLink
                                         href={external}
                                         target='_blank'
                                         rel='noopener noreferrer'
                                         aria-label='External Link'
                                     >
                                         <External size={24} />
-                                    </Link>
+                                    </IconLink>
                                 )}
                             </Stack>
                         </Details>

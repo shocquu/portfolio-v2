@@ -22,8 +22,9 @@ const OutlinedButton = css`
 `;
 
 const StyledButton = styled.button`
-    text-transform: uppercase;
+    font-family: var(--fontSerif);
     transition: var(--transition);
+    text-transform: uppercase;
     letter-spacing: 2px;
     padding: ${({ theme }) => `${theme.spacing(2)} ${theme.spacing(4)}`};
     ${({ variant }) => {

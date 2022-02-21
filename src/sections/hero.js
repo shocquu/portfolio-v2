@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import { Typography, Stack, Button } from '../components';
 
 const HeroSection = styled.section`
@@ -52,13 +53,13 @@ const Hero = () => {
                 <Stack>
                     <Button href='#contact'>Get in touch</Button>
                     <Button variant='outlined'>
-                        <a
-                            href='/resume.pdf'
+                        <Link
+                            to='/resume.pdf'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
                             Resume
-                        </a>
+                        </Link>
                     </Button>
                 </Stack>
             </Stack>

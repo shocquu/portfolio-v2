@@ -32,6 +32,7 @@ const Note = styled.span`
 const Email = styled.a`
     ${({ theme }) => theme.mixins.underline};
     right: ${({ theme }) => theme.spacing(5)};
+    font-family: var(--fontSerif);
     transition: var(--transition);
     color: var(--primary);
     font-size: 14px;

@@ -1,15 +1,15 @@
 import React from 'react';
-import { Layout } from '../components';
-import { Hero, About, Work, Featured, Contact } from '../sections';
+import { Layout, Footer } from '../components';
+import { Hero, About, Featured, Contact } from '../sections';
 
 const IndexPage = () => {
     return (
         <Layout>
             <Hero />
             <About />
-            {/* <Work /> */}
             <Featured />
             <Contact />
+            <Footer />
         </Layout>
     );
 };

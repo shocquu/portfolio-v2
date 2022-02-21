@@ -14,15 +14,31 @@ const GlobalStyle = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         background-color: var(--bgColor);
         color: var(--textSecondary);
-        /*font-family: var(--font-sans);
-        font-size: var(--fz-xl);*/
-        line-height: 1.3;
+        font-family: var(--fontSansSerif);
+        line-height: 1.4;
 
         @media screen and (${({ theme }) => theme.breakpoints.md}) {
             &.blurred {
                 overflow: hidden;
             }
         }
+    }
+
+    /* Scrollbar */
+    html {
+        scrollbar-width: thin;
+        scrollbar-color: var(--bgColor) var(--secondary);
+    }
+    body::-webkit-scrollbar {
+        width: 14px;
+    }
+    body::-webkit-scrollbar-track {
+        background: var(--bgColor);
+    }
+    body::-webkit-scrollbar-thumb {
+        background-color: var(--paper);
+        border: 3px solid var(--bgColor);
+        border-radius: 10px;
     }
 
     ::selection {
@@ -80,21 +96,15 @@ const GlobalStyle = createGlobalStyle`
         transition: opacity 150ms var(--easing), transform 150ms var(--easing);
     }
 
-    /* Scrollbar */
-    html {
-        scrollbar-width: thin;
-        scrollbar-color: var(--bgColor) var(--secondary);
+    .fade-up-enter {
+        opacity: 0;        
+        transform: translateY(16px);
+        transition: opacity var(--time) var(--easing), transform var(--time) var(--easing);
     }
-    body::-webkit-scrollbar {
-        width: 14px;
-    }
-    body::-webkit-scrollbar-track {
-        background: var(--bgColor);
-    }
-    body::-webkit-scrollbar-thumb {
-        background-color: var(--paper);
-        border: 3px solid var(--bgColor);
-        border-radius: 10px;
+    .fade-up-enter-active {
+        opacity: 1;
+        transform: translateY(0px);
+        transition: opacity var(--time) var(--easing), transform var(--time) var(--easing);
     }
 `;
 

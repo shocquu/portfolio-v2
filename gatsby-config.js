@@ -1,8 +1,8 @@
 module.exports = {
     siteMetadata: {
         url: `https://arkadiuszliszka.site`,
-        title: `Arkadiusz Liszka`,
-        titleTemplate: '%s · Portfolio',
+        title: `Portfolio`,
+        titleTemplate: 'Arkadiusz Liszka · %s',
         description: 'An aspiring Web Developer located in Poland',
         image: '/portfolio.png',
     },

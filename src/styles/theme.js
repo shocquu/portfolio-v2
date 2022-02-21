@@ -1,6 +1,6 @@
 import mixins from './mixins';
 
-export default {
+const theme = {
     mixins,
     breakpoints: {
         xs: `max-width: 300px`,
@@ -39,3 +39,5 @@ export default {
         return `${r},${g},${b}`;
     },
 };
+
+export default theme;

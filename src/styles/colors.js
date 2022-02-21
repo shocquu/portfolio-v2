@@ -1,4 +1,4 @@
-export default {
+const colors = {
     gallery: '#eeeeee',
     logan: '#a9adc9',
     fiord: '#3e4264',
@@ -10,3 +10,5 @@ export default {
     emeraldLighter: '#67da86',
     emeraldDarker: '#4dC06c',
 };
+
+export default colors;

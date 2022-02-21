@@ -54,8 +54,8 @@ const Social = () => (
         {socials.map(({ name, url, icon }) => (
             <a
                 key={name}
-                aria-label={name}
                 href={url}
+                aria-label={name}
                 target='_blank'
                 rel='noopener noreferrer'
             >

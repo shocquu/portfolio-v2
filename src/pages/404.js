@@ -1,54 +1,65 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
+import { Link } from 'gatsby';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { Layout, Button } from '../components';
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
+const Title = styled.h1`
+    font-size: clamp(100px, 25vw, 200px);
+    color: var(--primary);
+    position: relative;
+    bottom: 20px;
+    line-height: 0.7;
+`;
 
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+const Subtitle = styled.h2`
+    font-size: clamp(25px, 10vw, 50px);
+    color: var(--textPrimary);
+    font-weight: 400;
+`;
 
-// markup
+const Shruggie = styled.span`
+    font-size: clamp(40px, 15vw, 60px);
+    color: var(--textPrimary);
+`;
+
+const Page404 = styled.div`
+    ${({ theme }) => theme.mixins.flexCenter}
+    gap: ${({ theme }) => theme.spacing(4)};
+    flex-direction: column;
+    grid-column: 1 / 13;
+    min-height: 100vh;
+    user-select: none;
+`;
+
 const NotFoundPage = () => {
-  return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
-}
+    const [isMounted, setIsMounted] = useState(false);
 
-export default NotFoundPage
+    useEffect(() => {
+        const timeout = setTimeout(() => setIsMounted(true), 500);
+        return () => clearTimeout(timeout);
+    }, []);
+
+    return (
+        <Layout style={{ overflow: 'hidden' }}>
+            <Helmet title='Page Not Found' />
+            <TransitionGroup component={null}>
+                {isMounted && (
+                    <CSSTransition timeout={300} classNames='fade-up'>
+                        <Page404>
+                            <Shruggie>¯\_(ツ)_/¯</Shruggie>
+                            <Title>404</Title>
+                            <Subtitle>It looks empty to me</Subtitle>
+                            <Button>
+                                <Link to='/'>Go home</Link>
+                            </Button>
+                        </Page404>
+                    </CSSTransition>
+                )}
+            </TransitionGroup>
+        </Layout>
+    );
+};
+
+export default NotFoundPage;

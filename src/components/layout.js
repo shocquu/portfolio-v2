@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { SEO, Nav, Footer } from './index';
+import { Seo, Nav } from './index';
 import GlobalStyle from '../styles/global';
 import theme from '../styles/theme';
 
@@ -27,9 +27,10 @@ const links = [
     },
 ];
 
-const Main = styled.div`
+const Main = styled.main`
     display: grid;
     margin: 0 auto;
+    overflow: hidden;
     max-width: 1600px;
     grid-template-columns: repeat(12, 1fr);
 `;
@@ -48,14 +49,11 @@ const Layout = ({ children }) => {
 
     return (
         <>
-            <SEO />
+            <Seo />
             <ThemeProvider theme={theme}>
                 <GlobalStyle />
                 <Nav links={links} />
-                <Main>
-                    {children}
-                    <Footer />
-                </Main>
+                <Main>{children}</Main>
             </ThemeProvider>
         </>
     );

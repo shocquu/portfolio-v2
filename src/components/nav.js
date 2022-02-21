@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
+import { Link } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 import { Logo } from './icons';
 import colors from '../styles/colors';
@@ -22,11 +23,11 @@ const Frame = styled.header`
     }
 `;
 
-const Links = styled.div`
+const NavLinks = styled.div`
     ${({ theme }) => theme.mixins.flexBetween};
 `;
 
-const Link = styled.a`
+const NavLink = styled(Link)`
     ${({ theme }) => theme.mixins.underline};
     margin: ${({ theme }) => `${theme.spacing(1)} ${theme.spacing(3)}`};
     font-family: var(--fontSerif);
@@ -69,7 +70,7 @@ const Navbar = styled.nav`
             }
         }
 
-        ${Link} {
+        ${NavLink} {
             padding: ${({ theme }) => `${theme.spacing(4)} 0`};
         }
     }
@@ -137,11 +138,11 @@ const Nav = ({ links }) => {
         <>
             <Frame>
                 <Navbar>
-                    <a href='/'>
+                    <Link to='/'>
                         <Logo size={32} />
-                    </a>
-                    <Links>
-                        <ul aria-hidden={!open} role='menubar'>
+                    </Link>
+                    <NavLinks>
+                        <ul aria-hidden={!open}>
                             {links.map(({ name, href }, i) => (
                                 <CSSTransition
                                     key={i}
@@ -150,14 +151,13 @@ const Nav = ({ links }) => {
                                     className='slide'
                                 >
                                     <li
-                                        role='menuitem'
                                         style={{
                                             transitionDelay: `${i * 100}ms`,
                                         }}
                                     >
-                                        <Link href={href} aria-label={name}>
+                                        <NavLink to={href} aria-label={name}>
                                             {name}
-                                        </Link>
+                                        </NavLink>
                                     </li>
                                 </CSSTransition>
                             ))}
@@ -166,7 +166,7 @@ const Nav = ({ links }) => {
                             <div></div>
                             <div></div>
                         </HamburgerMenu>
-                    </Links>
+                    </NavLinks>
                 </Navbar>
             </Frame>
             {open && <FrostedOverlay />}

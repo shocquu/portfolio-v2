@@ -26,10 +26,9 @@ const variables = css`
             system-ui, serif;
 
         /* Transitions */
-        --easing: ease-in-out;
+        --easing: ease;
+        --time: 300ms;
         --transition: all 150ms var(--easing);
-
-        /* Animations */
     }
 `;
 
