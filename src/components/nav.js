@@ -27,7 +27,7 @@ const NavLinks = styled.div`
     ${({ theme }) => theme.mixins.flexBetween};
 `;
 
-const NavLink = styled(Link)`
+const NavLink = styled.a`
     ${({ theme }) => theme.mixins.underline};
     margin: ${({ theme }) => `${theme.spacing(1)} ${theme.spacing(3)}`};
     font-family: var(--fontSerif);
@@ -126,11 +126,11 @@ const Nav = ({ links }) => {
 
     useEffect(() => {
         const body = document.querySelector('body');
-        open && body.classList.add('blurred');
+        if (open) body.dataset.blurred = 'true';
 
         // delay to match animation
         window.setTimeout(() => {
-            !open && body.classList.remove('blurred');
+            !open && delete body.dataset.blurred;
         }, 300);
     }, [open]);
 
@@ -155,7 +155,7 @@ const Nav = ({ links }) => {
                                             transitionDelay: `${i * 100}ms`,
                                         }}
                                     >
-                                        <NavLink to={href} aria-label={name}>
+                                        <NavLink href={href} aria-label={name}>
                                             {name}
                                         </NavLink>
                                     </li>

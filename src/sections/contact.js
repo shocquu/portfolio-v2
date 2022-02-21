@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useInView } from 'react-intersection-observer';
 import { Stack, Typography, Button, Social } from '../components';
 
 const ContactSection = styled.section`
@@ -52,9 +53,18 @@ const Email = styled.a`
 `;
 
 const Contact = () => {
+    const { ref, inView } = useInView({
+        threshold: 0.8,
+        triggerOnce: true,
+    });
+
     return (
-        <ContactSection id='contact'>
-            <Stack direction='column' gap={2}>
+        <ContactSection id='contact' ref={ref}>
+            <Stack
+                direction='column'
+                gap={2}
+                className={inView ? 'fade-up-enter-active' : 'fade-up-enter'}
+            >
                 <Typography tag='h2' variant='title'>
                     Contact
                 </Typography>
@@ -66,11 +76,11 @@ const Contact = () => {
                     Say Hello
                 </Button>
                 <Note> or find me on:</Note>
-                <Social />
-                <Email href='mailto:arkadiusz.liszka13@gmail.com'>
-                    arkadiusz.liszka13@gmail.com
-                </Email>
             </Stack>
+            <Social />
+            <Email href='mailto:arkadiusz.liszka13@gmail.com'>
+                arkadiusz.liszka13@gmail.com
+            </Email>
         </ContactSection>
     );
 };

@@ -27,7 +27,7 @@ const variables = css`
 
         /* Transitions */
         --easing: ease;
-        --time: 300ms;
+        --time: 500ms;
         --transition: all 150ms var(--easing);
     }
 `;

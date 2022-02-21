@@ -104,6 +104,7 @@ const Typography = ({
     fontSize,
     gutterBottom,
     children,
+    innerRef,
     ...props
 }) => (
     <Text
@@ -112,6 +113,7 @@ const Typography = ({
         align={align}
         fontSize={fontSize}
         gutterBottom={gutterBottom ? true : false}
+        ref={innerRef}
         {...props}
     >
         {children}

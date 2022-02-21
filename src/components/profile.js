@@ -23,14 +23,14 @@ const Wrapper = styled.div`
     }
 `;
 
-const Profile = () => {
+const Profile = ({ className }) => {
     return (
-        <Wrapper>
+        <Wrapper className={className}>
             <StaticImage
                 src='../images/profile.png'
                 alt='Profile picture'
                 objectFit='cover'
-                loading='lazy'
+                loading='eager'
             />
         </Wrapper>
     );

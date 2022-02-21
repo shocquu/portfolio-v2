@@ -45,6 +45,11 @@ const Layout = ({ children }) => {
             link.setAttribute('target', '_blank');
             link.setAttribute('rel', 'noopener noreferrer');
         });
+
+        if (typeof window !== 'undefined') {
+            // Make scroll behavior of internal links smooth
+            // require('smooth-scroll')('a[href*="#"]');
+        }
     }, []);
 
     return (

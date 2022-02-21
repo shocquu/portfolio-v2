@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
+import { useInView } from 'react-intersection-observer';
 import { Typography, Slide, Stack, Chip } from '../components';
 import { GithubOutlined, External } from '../components/icons';
 
@@ -68,6 +69,22 @@ const FeaturedWrapper = styled.div`
 `;
 
 const Featured = () => {
+    const [ref1, inView1] = useInView({
+        threshold: 1,
+        triggerOnce: true,
+    });
+    const [ref2, inView2] = useInView({
+        threshold: 1,
+        triggerOnce: true,
+    });
+    const [ref3, inView3] = useInView({
+        threshold: 1,
+        triggerOnce: true,
+    });
+
+    const refs = [ref1, ref2, ref3];
+    const inViews = [inView1, inView2, inView3];
+
     const data = useStaticQuery(graphql`
         {
             featured: allMarkdownRemark(
@@ -105,7 +122,13 @@ const Featured = () => {
 
     return (
         <FeaturedSection id='featured'>
-            <Typography tag='h2' variant='title'>
+            <Typography
+                tag='h2'
+                variant='title'
+                className={
+                    inView1 ? `fade-left-enter-active` : `fade-left-enter`
+                }
+            >
                 Some of my projects
             </Typography>
             {featured.map(({ node }, i) => {
@@ -113,9 +136,18 @@ const Featured = () => {
                 const { title, preview, repo, external, tags } = frontmatter;
                 const image = getImage(preview);
                 const direction = i % 2 === 0 ? 'right' : 'left';
+                const altDirection = i % 2 === 0 ? 'left' : 'right';
 
                 return (
-                    <FeaturedWrapper key={i}>
+                    <FeaturedWrapper
+                        key={i}
+                        ref={refs[i]}
+                        className={
+                            inViews[i]
+                                ? `fade-${altDirection}-enter-active`
+                                : `fade-${altDirection}-enter`
+                        }
+                    >
                         <Slide
                             image={image}
                             alt={title}

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useInView } from 'react-intersection-observer';
 import { Typography, Stack, Profile, Itemlist } from '../components';
 
 const skills = [
@@ -18,6 +19,7 @@ const AboutSection = styled.section`
 
 const Inner = styled.div`
     display: grid;
+    transition-delay: var(--time);
     grid-template-columns: 3fr auto;
     gap: ${({ theme }) => theme.spacing(5)};
 
@@ -29,12 +31,25 @@ const Inner = styled.div`
 `;
 
 const About = () => {
+    const { ref, inView } = useInView({
+        threshold: 0.6,
+        triggerOnce: true,
+    });
+
     return (
-        <AboutSection id='about'>
-            <Typography tag='h2' variant='title'>
+        <AboutSection id='about' ref={ref}>
+            <Typography
+                tag='h2'
+                variant='title'
+                className={
+                    inView ? 'fade-left-enter-active' : 'fade-left-enter'
+                }
+            >
                 About me
             </Typography>
-            <Inner>
+            <Inner
+                className={inView ? 'fade-up-enter-active' : 'fade-up-enter'}
+            >
                 <Stack gap={2} direction='column'>
                     <Typography tag='p'>
                         I'm currently studying at AGH University located in

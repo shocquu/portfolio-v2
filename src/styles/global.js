@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
         line-height: 1.4;
 
         @media screen and (${({ theme }) => theme.breakpoints.md}) {
-            &.blurred {
+            &[data-blurred] {
                 overflow: hidden;
             }
         }
@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
 
     /* Scrollbar */
     html {
+        scroll-behavior: smooth;
         scrollbar-width: thin;
         scrollbar-color: var(--bgColor) var(--secondary);
     }
@@ -76,6 +77,16 @@ const GlobalStyle = createGlobalStyle`
         background: none;
     }
 
+    /* Animations */    
+    @keyframes hand-wave-animation {
+        0%, 30%, 100% { transform: rotate( 0deg) }
+        5% { transform: rotate(15.0deg) }
+        10% { transform: rotate(-7deg) }
+        15% { transform: rotate(17deg) }
+        20% { transform: rotate(-3deg) }
+        25% { transform: rotate(12deg) }
+    }
+
     /* Transitions */
     .slide {
         opacity: 0;
@@ -96,14 +107,56 @@ const GlobalStyle = createGlobalStyle`
         transition: opacity 150ms var(--easing), transform 150ms var(--easing);
     }
 
+    .fade-in-enter {
+        opacity: 0;
+        transition: opacity var(--time) var(--easing), transform var(--time) var(--easing);
+    }
+    .fade-in-enter-active {
+        opacity: 1;
+        transition: opacity var(--time) var(--easing), transform var(--time) var(--easing);
+    }
+
     .fade-up-enter {
-        opacity: 0;        
+        opacity: 0;
         transform: translateY(16px);
         transition: opacity var(--time) var(--easing), transform var(--time) var(--easing);
     }
     .fade-up-enter-active {
         opacity: 1;
         transform: translateY(0px);
+        transition: opacity var(--time) var(--easing), transform var(--time) var(--easing);
+    }
+
+    .fade-down-enter {
+        opacity: 0;
+        transform: translateY(-16px);
+        transition: opacity var(--time) var(--easing), transform var(--time) var(--easing);
+    }
+    .fade-down-enter-active {
+        opacity: 1;
+        transform: translateY(0px);
+        transition: opacity var(--time) var(--easing), transform var(--time) var(--easing);
+    }
+
+    .fade-left-enter {
+        opacity: 0;
+        transform: translateX(-16px);
+        transition: opacity var(--time) var(--easing), transform var(--time) var(--easing);
+    }
+    .fade-left-enter-active {
+        opacity: 1;
+        transform: translateX(0px);
+        transition: opacity var(--time) var(--easing), transform var(--time) var(--easing);
+    }
+
+    .fade-right-enter {
+        opacity: 0;
+        transform: translateX(16px);
+        transition: opacity var(--time) var(--easing), transform var(--time) var(--easing);
+    }
+    .fade-right-enter-active {
+        opacity: 1;
+        transform: translateX(0px);
         transition: opacity var(--time) var(--easing), transform var(--time) var(--easing);
     }
 `;
