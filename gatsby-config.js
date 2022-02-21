@@ -12,6 +12,13 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
+                name: `Arkadiusz Liszka - Portfolio`,
+                short_name: `Arkadiusz Liszka`,
+                description: 'An aspiring Web Developer located in Poland',
+                start_url: `/`,
+                background_color: `#1b1f3a`,
+                theme_color: `#d14449`,
+                display: `standalone`,
                 icon: 'src/images/icon.svg',
             },
         },

@@ -10,4 +10,6 @@ export { default as Slide } from './slide';
 export { default as Chip } from './chip';
 export { default as Social } from './social';
 export { default as Footer } from './footer';
+export { default as LazyComponent } from './lazy';
+export { default as Loader } from './loader';
 export { default as Seo } from './seo';

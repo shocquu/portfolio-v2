@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
 import { Typography, Stack, Button } from '../components';
@@ -54,16 +53,17 @@ const Hero = () => {
     return (
         <HeroSection id='landing-page'>
             <Stack direction='column' gap={4}>
-                <Wrapper>
+                <Wrapper
+                    style={{ transitionDelay: '300ms' }}
+                    className={
+                        inView ? 'fade-up-enter-active' : 'fade-up-enter'
+                    }
+                >
                     <Typography
                         tag='h2'
                         variant='caption'
                         fontSize={30}
                         innerRef={ref}
-                        style={{ transitionDelay: '300ms' }}
-                        className={
-                            inView ? 'fade-up-enter-active' : 'fade-up-enter'
-                        }
                     >
                         Hello!
                     </Typography>
@@ -90,13 +90,13 @@ const Hero = () => {
                 >
                     <Button href='#contact'>Get in touch</Button>
                     <Button variant='outlined'>
-                        <Link
-                            to='/resume.pdf'
+                        <a
+                            href='/resume.pdf'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
                             Resume
-                        </Link>
+                        </a>
                     </Button>
                 </Stack>
             </Stack>

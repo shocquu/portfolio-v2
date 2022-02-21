@@ -36,8 +36,8 @@ const Main = styled.main`
 `;
 
 const Layout = ({ children }) => {
-    // handle dangerouslySetInnerHTML links
     useEffect(() => {
+        // handle dangerouslySetInnerHTML links
         const links = Array.from(
             document.querySelectorAll('#featured a, #projects a')
         );
@@ -45,21 +45,13 @@ const Layout = ({ children }) => {
             link.setAttribute('target', '_blank');
             link.setAttribute('rel', 'noopener noreferrer');
         });
-
-        if (typeof window !== 'undefined') {
-            // Make scroll behavior of internal links smooth
-            // require('smooth-scroll')('a[href*="#"]');
-        }
     }, []);
 
     return (
         <>
             <Seo />
-            <ThemeProvider theme={theme}>
-                <GlobalStyle />
-                <Nav links={links} />
-                <Main>{children}</Main>
-            </ThemeProvider>
+            <Nav links={links} />
+            <Main>{children}</Main>
         </>
     );
 };

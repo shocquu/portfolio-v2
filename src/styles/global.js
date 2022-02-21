@@ -109,11 +109,11 @@ const GlobalStyle = createGlobalStyle`
 
     .fade-in-enter {
         opacity: 0;
-        transition: opacity var(--time) var(--easing), transform var(--time) var(--easing);
+        transition: opacity 1000ms var(--easing);
     }
     .fade-in-enter-active {
         opacity: 1;
-        transition: opacity var(--time) var(--easing), transform var(--time) var(--easing);
+        transition: opacity 1000ms var(--easing);
     }
 
     .fade-up-enter {

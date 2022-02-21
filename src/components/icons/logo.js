@@ -3,7 +3,7 @@ import React from 'react';
 const External = ({ size = 24 }) => (
     <svg
         width={`${size}px`}
-        height={`${2 * size}px`}
+        height={`${size}px`}
         id='logo'
         role='img'
         xmlSpace='preserve'
