@@ -49,9 +49,12 @@ const Layout = ({ children }) => {
 
     return (
         <>
-            <Seo />
-            <Nav links={links} />
-            <Main>{children}</Main>
+            <ThemeProvider theme={theme}>
+                <GlobalStyle />
+                <Seo />
+                <Nav links={links} />
+                <Main>{children}</Main>
+            </ThemeProvider>
         </>
     );
 };

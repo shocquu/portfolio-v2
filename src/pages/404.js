@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { Link } from 'gatsby';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { Layout, Button } from '../components';
-import GlobalStyle from '../styles/global';
-import theme from '../styles/theme';
 
 const Title = styled.h1`
     font-size: clamp(100px, 25vw, 200px);
@@ -44,26 +42,23 @@ const NotFoundPage = () => {
     }, []);
 
     return (
-        <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <Layout>
-                <Helmet title='Page Not Found' />
-                <TransitionGroup component={null}>
-                    {isMounted && (
-                        <CSSTransition timeout={300} classNames='fade-up'>
-                            <Page404>
-                                <Shruggie>¯\_(ツ)_/¯</Shruggie>
-                                <Title>404</Title>
-                                <Subtitle>It looks empty to me</Subtitle>
-                                <Button>
-                                    <Link to='/'>Go home</Link>
-                                </Button>
-                            </Page404>
-                        </CSSTransition>
-                    )}
-                </TransitionGroup>
-            </Layout>
-        </ThemeProvider>
+        <Layout>
+            <Helmet title='Page Not Found' />
+            <TransitionGroup component={null}>
+                {isMounted && (
+                    <CSSTransition timeout={300} classNames='fade-up'>
+                        <Page404>
+                            <Shruggie>¯\_(ツ)_/¯</Shruggie>
+                            <Title>404</Title>
+                            <Subtitle>It looks empty to me</Subtitle>
+                            <Button>
+                                <Link to='/'>Go home</Link>
+                            </Button>
+                        </Page404>
+                    </CSSTransition>
+                )}
+            </TransitionGroup>
+        </Layout>
     );
 };
 

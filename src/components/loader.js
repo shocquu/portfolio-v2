@@ -5,7 +5,7 @@ import Logo from './icons/logo';
 const LoadingProgress = styled.div`
     width: 0%;
     max-width: 100%;
-    background: var(--primary);
+    background: #d14449;
     height: 4px;
     transition: width 1000ms ease;
 `;
@@ -13,10 +13,10 @@ const LoadingProgress = styled.div`
 const LoadingBar = styled.div`
     padding: 4px;
     width: 60vmin;
-    background: var(--bgColor);
+    background: #1b1f3a;
     overflow: hidden;
     box-sizing: border-box;
-    border: 4px solid var(--textPrimary);
+    border: 4px solid #eeeeee;
     transition: all 300ms ease, height 150ms ease;
 `;
 
@@ -33,7 +33,7 @@ const Wrapper = styled.div`
 `;
 
 const Background = styled.div`
-    background: var(--bgColor);
+    background: #1b1f3a;
     display: flex;
     align-items: center;
     justify-content: center;
