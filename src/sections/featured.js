@@ -70,15 +70,15 @@ const FeaturedWrapper = styled.div`
 
 const Featured = () => {
     const [ref1, inView1] = useInView({
-        threshold: 1,
+        threshold: 0.5,
         triggerOnce: true,
     });
     const [ref2, inView2] = useInView({
-        threshold: 1,
+        threshold: 0.5,
         triggerOnce: true,
     });
     const [ref3, inView3] = useInView({
-        threshold: 1,
+        threshold: 0.5,
         triggerOnce: true,
     });
 

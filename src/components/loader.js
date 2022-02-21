@@ -72,6 +72,12 @@ const Background = styled.div`
             margin-bottom: 10px;
         }
     }
+
+    @media screen and (max-width: 400px) {
+        svg {
+            margin-bottom: 16px;
+        }
+    }
 `;
 
 const Loader = () => {

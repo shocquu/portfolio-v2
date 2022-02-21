@@ -33,15 +33,24 @@ const HeroSection = styled.section`
 const Wrapper = styled.div`
     ${({ theme }) => theme.mixins.flexCenter};
     gap: 8px;
+
+    @media (${({ theme }) => theme.breakpoints.sm}) {
+        h2 {
+            font-size: 22px !important;
+        }
+    }
 `;
 
 const HandEmoji = styled.span`
-    content: '👋';
     position: relative;
     animation: hand-wave-animation 6s infinite;
     transform-origin: 70% 70%;
     font-size: 28px;
     bottom: 3px;
+
+    @media (${({ theme }) => theme.breakpoints.sm}) {
+        font-size: 24px;
+    }
 `;
 
 const Hero = () => {
@@ -51,7 +60,7 @@ const Hero = () => {
     });
 
     return (
-        <HeroSection id='landing-page'>
+        <HeroSection id='landing-page' ref={ref}>
             <Stack direction='column' gap={4}>
                 <Wrapper
                     style={{ transitionDelay: '300ms' }}
@@ -59,12 +68,7 @@ const Hero = () => {
                         inView ? 'fade-up-enter-active' : 'fade-up-enter'
                     }
                 >
-                    <Typography
-                        tag='h2'
-                        variant='caption'
-                        fontSize={30}
-                        innerRef={ref}
-                    >
+                    <Typography tag='h2' variant='caption' fontSize={30}>
                         Hello!
                     </Typography>
                     <HandEmoji>👋</HandEmoji>

@@ -62,6 +62,7 @@ const Wrapper = styled.div`
         z-index: -1;
         opacity: 0.5;
         width: 100%;
+        height: 100%;
         margin: 0;
         max-width: unset;
         background-color: var(--paper);

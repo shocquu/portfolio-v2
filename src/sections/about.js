@@ -32,7 +32,7 @@ const Inner = styled.div`
 
 const About = () => {
     const { ref, inView } = useInView({
-        threshold: 0.6,
+        threshold: 0.2,
         triggerOnce: true,
     });
 

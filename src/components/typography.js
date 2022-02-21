@@ -59,7 +59,7 @@ const Body1 = css`
     line-height: 1.4;
 
     @media screen and (${({ theme }) => theme.breakpoints.sm}) {
-        font-size: 16px;
+        font-size: 18px;
     }
 `;
 

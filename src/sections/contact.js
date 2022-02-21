@@ -54,7 +54,7 @@ const Email = styled.a`
 
 const Contact = () => {
     const { ref, inView } = useInView({
-        threshold: 0.8,
+        threshold: 0.5,
         triggerOnce: true,
     });
 
