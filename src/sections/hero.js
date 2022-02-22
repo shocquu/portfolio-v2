@@ -14,10 +14,6 @@ const HeroSection = styled.section`
         color: var(--textPrimary);
     }
 
-    button {
-        height: 100%;
-    }
-
     @media (${({ theme }) => theme.breakpoints.sm}) {
         button {
             width: 100%;
@@ -93,14 +89,12 @@ const Hero = () => {
                     }
                 >
                     <Button href='#contact'>Get in touch</Button>
-                    <Button variant='outlined'>
-                        <a
-                            href='/resume.pdf'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                        >
-                            Resume
-                        </a>
+                    <Button
+                        href='/resume.pdf'
+                        target='_blank'
+                        variant='outlined'
+                    >
+                        Resume
                     </Button>
                 </Stack>
             </Stack>

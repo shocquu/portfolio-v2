@@ -46,6 +46,7 @@ const Caption = css`
     color: var(--primary);
     font-size: 14px;
     font-weight: 500;
+    line-height: 1;
 
     @media (${({ theme }) => theme.breakpoints.sm}) {
         font-size: 12px;

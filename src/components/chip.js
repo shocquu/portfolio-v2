@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledChip = styled.div`
-    padding: ${({ theme }) => theme.spacing(2)};
+    padding: ${({ padding, theme }) =>
+        padding ? `${padding}px` : theme.spacing(2)};
     font-family: var(--fontSerif);
     font-size: 12px;
     background: var(--primary);
@@ -16,6 +17,8 @@ const StyledChip = styled.div`
     }
 `;
 
-const Chip = ({ name }) => <StyledChip>{name}</StyledChip>;
+const Chip = ({ name, padding }) => (
+    <StyledChip padding={padding}>{name}</StyledChip>
+);
 
 export default Chip;

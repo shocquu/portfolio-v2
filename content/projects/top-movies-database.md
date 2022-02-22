@@ -1,12 +1,13 @@
 ---
-date: '09/2021'
-title: 'Chata u Migacza'
+date: '05/2021'
+title: 'Top Movies Database'
 repo: ''
-external: 'https://www.chataumigacza.pl/'
+external: ''
 tags:
     - ReactJS
-    - Styled Components
-company: 'Freelance Work'
+    - Bootstrap
+    - MySQL
+company: 'College Project'
 hidden: false
 ---
 

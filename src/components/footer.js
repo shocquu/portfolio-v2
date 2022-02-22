@@ -6,7 +6,7 @@ const Frame = styled.footer`
     ${({ theme }) => theme.mixins.flexCenter};
     flex-direction: column;
     grid-column: 1 / 13;
-    grid-row: 6;
+    grid-row: 7;
     margin-bottom: 20px;
 
     a {

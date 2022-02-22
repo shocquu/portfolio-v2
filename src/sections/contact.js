@@ -8,7 +8,9 @@ const ContactSection = styled.section`
     grid-column: 5 / span 4 !important;
     flex-direction: column;
     text-align: center;
-    grid-row: 5;
+    grid-row: 6;
+    height: 50vh;
+    padding-bottom: 50px;
 
     @media (${({ theme }) => theme.breakpoints.md}) {
         grid-column: 3 / 11 !important;

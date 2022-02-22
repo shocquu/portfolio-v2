@@ -1,12 +1,14 @@
 ---
-date: '09/2021'
-title: 'Chata u Migacza'
+date: '06/2019'
+title: 'Portfolio v1'
 repo: ''
-external: 'https://www.chataumigacza.pl/'
+external: ''
 tags:
-    - ReactJS
-    - Styled Components
-company: 'Freelance Work'
+    - jQuery
+    - SASS
+    - PHP
+    - MySQL
+company: 'Personal Project'
 hidden: false
 ---
 

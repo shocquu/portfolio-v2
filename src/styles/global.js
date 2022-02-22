@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: var(--fontSansSerif);
         line-height: 1.4;
 
-        @media screen and (${({ theme }) => theme.breakpoints.md}) {
+        @media screen and (${({ theme }) => theme.breakpoints.sm}) {
             &[data-blurred] {
                 overflow: hidden;
             }
@@ -50,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
     section {
         width: 100%;
         margin: 0 auto;
-        padding-bottom: 100px;
+        padding-bottom: 150px;
 
         @media screen and (${({ theme }) => theme.breakpoints.xl}) {
             grid-column: 2 / 12 !important;

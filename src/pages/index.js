@@ -7,6 +7,7 @@ const Footer = React.lazy(() => import('../components/footer'));
 const Hero = React.lazy(() => import('../sections/hero'));
 const About = React.lazy(() => import('../sections/about'));
 const Featured = React.lazy(() => import('../sections/featured'));
+const Projects = React.lazy(() => import('../sections/projects'));
 const Contact = React.lazy(() => import('../sections/contact'));
 
 const IndexPage = () => {
@@ -20,6 +21,7 @@ const IndexPage = () => {
                         <Hero />
                         <About />
                         <Featured />
+                        {/* <Projects /> */}
                         <Contact />
                         <Footer />
                     </LazyComponent>

@@ -104,7 +104,7 @@ const HamburgerMenu = styled.div`
 `;
 
 const FrostedOverlay = styled.div`
-    @media screen and (${({ theme }) => theme.breakpoints.md}) {
+    @media screen and (${({ theme }) => theme.breakpoints.sm}) {
         position: fixed;
         top: 0;
         left: 0;
@@ -122,6 +122,11 @@ const Nav = ({ links }) => {
 
     const handleOpen = () => {
         setOpen((open) => !open);
+    };
+
+    const handleClose = () => {
+        // close navbar upon clicking the link on mobile devices
+        window.innerWidth < 600 && setOpen(false);
     };
 
     useEffect(() => {
@@ -155,7 +160,11 @@ const Nav = ({ links }) => {
                                             transitionDelay: `${i * 100}ms`,
                                         }}
                                     >
-                                        <NavLink href={href} aria-label={name}>
+                                        <NavLink
+                                            href={href}
+                                            aria-label={name}
+                                            onClick={handleClose}
+                                        >
                                             {name}
                                         </NavLink>
                                     </li>

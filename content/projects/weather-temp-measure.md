@@ -1,12 +1,15 @@
 ---
-date: '09/2021'
-title: 'Chata u Migacza'
+date: '05/2021'
+title: 'Weather Temperature'
 repo: ''
-external: 'https://www.chataumigacza.pl/'
+external: ''
 tags:
-    - ReactJS
-    - Styled Components
-company: 'Freelance Work'
+    - Python
+    - Docker
+    - Apache Kafka
+    - Apache ZooKeeper
+    - MySQL
+company: 'College Project'
 hidden: false
 ---
 

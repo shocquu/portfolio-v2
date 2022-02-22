@@ -1,12 +1,14 @@
 ---
-date: '09/2021'
-title: 'Chata u Migacza'
+date: '01/2021'
+title: 'Fashion eCommerce Website'
 repo: ''
-external: 'https://www.chataumigacza.pl/'
+external: ''
 tags:
-    - ReactJS
-    - Styled Components
-company: 'Freelance Work'
+    - JavaScript
+    - CSS
+    - PHP
+    - MySQL
+company: 'College Project'
 hidden: false
 ---
 

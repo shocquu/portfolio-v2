@@ -20,6 +20,9 @@ module.exports = {
                 theme_color: `#d14449`,
                 display: `standalone`,
                 icon: 'src/images/icon.svg',
+                icon_options: {
+                    purpose: `any maskable`,
+                },
             },
         },
         'gatsby-plugin-sharp',

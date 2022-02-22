@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 const ContainedButton = css`
     background-color: ${({ color }) => (color ? color : 'var(--primary)')};
+    border: 1px solid var(--primary);
     color: #fff;
 
     &:hover {
@@ -21,7 +22,7 @@ const OutlinedButton = css`
     }
 `;
 
-const StyledButton = styled.button`
+const SharedStyles = css`
     font-family: var(--fontSerif);
     transition: var(--transition);
     text-transform: uppercase;
@@ -38,10 +39,29 @@ const StyledButton = styled.button`
     }};
 `;
 
-const Button = ({ href, variant, color, children }) => (
-    <StyledButton role='button' variant={variant} color={color}>
-        {href ? <a href={href}>{children}</a> : children}
-    </StyledButton>
-);
+const StyledButton = styled.button`
+    ${SharedStyles}
+`;
+
+const StyledLink = styled.a`
+    ${SharedStyles}
+`;
+
+const Button = ({ href, variant, color, children, ...props }) =>
+    href ? (
+        <StyledLink
+            href={href}
+            role='button'
+            variant={variant}
+            color={color}
+            {...props}
+        >
+            {children}
+        </StyledLink>
+    ) : (
+        <StyledButton role='button' variant={variant} color={color} {...props}>
+            {children}
+        </StyledButton>
+    );
 
 export default Button;
