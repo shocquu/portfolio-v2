@@ -18,11 +18,29 @@ const Flexbox = styled.div`
                 return 'inherit';
         }
     }};
+    justify-content: ${({ justify }) => {
+        switch (justify) {
+            case 'left':
+                return 'flex-start';
+            case 'right':
+                return 'flex-end';
+            case 'center':
+                return 'center';
+            default:
+                return 'inherit';
+        }
+    }};
 `;
 
-const Stack = ({ direction, gap, align, children, ...props }) => {
+const Stack = ({ direction, gap, align, justify, children, ...props }) => {
     return (
-        <Flexbox direction={direction} gap={gap} align={align} {...props}>
+        <Flexbox
+            direction={direction}
+            gap={gap}
+            align={align}
+            justify={justify}
+            {...props}
+        >
             {children}
         </Flexbox>
     );

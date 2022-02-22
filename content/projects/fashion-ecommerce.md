@@ -1,5 +1,5 @@
 ---
-date: '01/2021'
+date: '2021/01'
 title: 'Fashion eCommerce Website'
 repo: ''
 external: ''
@@ -12,4 +12,4 @@ company: 'College Project'
 hidden: false
 ---
 
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum numquam blanditiis quaerat repellendus, fugit deserunt tempore ratione ex sequi laborum molestias odio cumque totam repellat soluta natus labore veritatis aspernatur?
+A simple eCommerce solution for a clothing store as a college project made using plain JavaScript and CSS.

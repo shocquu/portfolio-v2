@@ -1,27 +1,34 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useInView } from 'react-intersection-observer';
-import { Typography, Stack, Chip, IconLink } from '../components';
-import { FolderClosed, GithubOutlined, External } from '../components/icons';
+import { graphql, useStaticQuery } from 'gatsby';
+import { Typography, Stack, Chip } from '../components';
+import {
+    FolderClosed,
+    FolderOpen,
+    GithubOutlined,
+    External,
+} from '../components/icons';
 
 const ProjectsSection = styled.section`
     grid-column: 4 / span 6;
     grid-row: 5;
+    margin-top: 50px;
+
+    article {
+        margin-bottom: 8px;
+    }
 `;
 
 const Grid = styled.div`
     display: grid;
-    grid-template-columns: auto 1fr;
-    grid-gap: 8px 16px;
+    grid-template-columns: 50px auto 1fr;
+    grid-gap: 0px 16px;
     align-items: flex-start;
 
     [data-interactive] {
         cursor: pointer;
     }
-`;
-
-const InnerGrid = styled(Grid)`
-    grid-template-columns: 50px auto 1fr;
 `;
 
 const FolderContent = styled.div`
@@ -35,16 +42,55 @@ const FolderContent = styled.div`
     }
 `;
 
+const Connector = styled.svg`
+    fill: var(--paper);
+    width: 100%;
+    height: 100%;
+`;
+
 const Projects = () => {
     const { ref, inView } = useInView({
         threshold: 0.2,
         triggerOnce: true,
     });
 
+    const data = useStaticQuery(graphql`
+        {
+            projects: allMarkdownRemark(
+                filter: { fileAbsolutePath: { regex: "/projects/" } }
+                sort: { fields: [frontmatter___date], order: DESC }
+            ) {
+                edges {
+                    node {
+                        id
+                        frontmatter {
+                            hidden
+                            external
+                            date
+                            company
+                            repo
+                            tags
+                            title
+                        }
+                        html
+                    }
+                }
+            }
+        }
+    `);
+
+    const projects = data.projects.edges.filter(({ node }) => node);
+
+    if (!projects) return null;
+
     return (
-        <ProjectsSection id='projects'>
-            <Grid>
-                <FolderClosed size={50} color='#d14449' />
+        <ProjectsSection
+            id='projects'
+            ref={ref}
+            className={inView ? 'fade-up-enter-active' : 'fade-up-enter'}
+        >
+            <Stack gap={3}>
+                <FolderOpen size={60} color='#d14449' />
                 <Typography
                     tag='h3'
                     variant='subtitle'
@@ -53,38 +99,53 @@ const Projects = () => {
                 >
                     Draft
                 </Typography>
-                <div>3</div>
-                <InnerGrid>
-                    <Folder
-                        data={{
-                            name: 'Project #1',
-                            description:
-                                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus vitae fugit aspernatur alias quisquam provident consequatur ratione dolorum numquam, omnis autem et sunt nihil aut harum illo praesentium minima nam?',
-                            date: '01/2021',
-                            company: 'College Project',
-                            tags: ['JavaScript', 'CSS'],
-                        }}
-                    />
-                    <Folder
-                        last
-                        data={{
-                            name: 'Project #2',
-                            description:
-                                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus vitae fugit aspernatur alias quisquam provident consequatur ratione dolorum numquam, omnis autem et sunt nihil aut harum illo praesentium minima nam?',
-                            date: '01/2021',
-                            company: 'Freelance Work',
-                            tags: ['ReactJS', 'Bootstrap'],
-                        }}
-                    />
-                </InnerGrid>
+            </Stack>
+            <Grid>
+                {projects.map(({ node }, i) => {
+                    const { html, frontmatter } = node;
+                    const {
+                        title,
+                        date,
+                        company,
+                        repo,
+                        external,
+                        tags,
+                        hidden,
+                    } = frontmatter;
+                    const size = projects.length - 1;
+
+                    return (
+                        !hidden && (
+                            <Folder
+                                key={i}
+                                date={date}
+                                company={company}
+                                title={title}
+                                description={html}
+                                repo={repo}
+                                external={external}
+                                tags={tags}
+                                last={i === size}
+                            />
+                        )
+                    );
+                })}
             </Grid>
         </ProjectsSection>
     );
 };
 
-const Folder = ({ data, last = false }) => {
-    const { name, description, date, company, tags, repo, external } = data;
-    const [open, setOpen] = useState(true);
+const Folder = ({
+    date,
+    company,
+    title,
+    description,
+    repo,
+    external,
+    tags,
+    last = false,
+}) => {
+    const [open, setOpen] = useState(false);
 
     const handleClick = () => {
         setOpen((open) => !open);
@@ -93,12 +154,21 @@ const Folder = ({ data, last = false }) => {
     return (
         <>
             {last ? <LShape /> : <TShape />}
-            <FolderClosed
-                size={40}
-                color={'#cbccd1'}
-                onClick={handleClick}
-                data-interactive
-            />
+            {open ? (
+                <FolderOpen
+                    size={50}
+                    color={'#cbccd1'}
+                    onClick={handleClick}
+                    data-interactive
+                />
+            ) : (
+                <FolderClosed
+                    size={40}
+                    color={'#cbccd1'}
+                    onClick={handleClick}
+                    data-interactive
+                />
+            )}
             <Typography
                 tag='h4'
                 variant='subtitle'
@@ -106,39 +176,46 @@ const Folder = ({ data, last = false }) => {
                 onClick={handleClick}
                 data-interactive
             >
-                {name}
+                {title}
             </Typography>
-            {!last && <IShape />}
+            {!last && <IShape open={open} />}
             <FolderContent open={open}>
-                <Stack direction='column' gap={1}>
+                <Stack gap={2} direction='column'>
                     <Stack gap={1} align='center'>
                         <Typography variant='caption'>{company}</Typography>
                         <span>•</span>
                         <Typography variant='caption'>{date}</Typography>
                     </Stack>
-                    <Typography variant='body2'>{description}</Typography>
+                    <Typography
+                        tag='article'
+                        variant='body2'
+                        fontSize={16}
+                        dangerouslySetInnerHTML={{ __html: description }}
+                    />
                     <Stack gap={2}>
                         {tags.map((tag) => (
                             <Chip key={tag} name={tag} padding={4} />
                         ))}
                     </Stack>
                     <Stack gap={2} style={{ marginBottom: '16px' }}>
-                        <a
-                            href={repo}
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            aria-label='GitHub Link'
-                        >
-                            <GithubOutlined size={18} />
-                        </a>
-                        {!external && (
+                        {repo && (
+                            <a
+                                href={repo}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                aria-label='GitHub Link'
+                            >
+                                <GithubOutlined size={22} />
+                            </a>
+                        )}
+                        {external && (
                             <a
                                 href={external}
                                 target='_blank'
                                 rel='noopener noreferrer'
                                 aria-label='External Link'
                             >
-                                <External size={18} />
+                                <External size={22} />
                             </a>
                         )}
                     </Stack>
@@ -148,21 +225,41 @@ const Folder = ({ data, last = false }) => {
     );
 };
 
-const TShape = () => <span>T</span>;
-const LShape = () => (
-    <svg
-        version='1.1'
-        id='Layer_1'
+const IShape = ({ open }) => (
+    <Connector
+        fill='currentColor'
         xmlns='http://www.w3.org/2000/svg'
-        xmlnsXlink='http://www.w3.org/1999/xlink'
-        x='0px'
-        y='0px'
+        viewBox='0 0 50 50'
+        xmlSpace='preserve'
+        preserveAspectRatio='none'
+        style={{
+            marginBottom: !open ? '-30px' : '0',
+        }}
+    >
+        <rect x='24.5' width='1' height='50' />
+    </Connector>
+);
+
+const TShape = () => (
+    <Connector
+        fill='currentColor'
+        xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 50 50'
         xmlSpace='preserve'
     >
-        <line class='st0' x1='25' y1='0' x2='25' y2='50' />
-    </svg>
+        <polygon points='25.5,24 25.5,0 24.5,0 24.5,50 25.5,50 25.5,25 50,25 50,24 ' />
+    </Connector>
 );
-const IShape = () => <span>I</span>;
+
+const LShape = () => (
+    <Connector
+        fill='currentColor'
+        xmlns='http://www.w3.org/2000/svg'
+        viewBox='0 0 50 50'
+        xmlSpace='preserve'
+    >
+        <polygon points='25.5,24.5 25.5,0 24.5,0 24.5,25.5 50,25.5 50,24.5 ' />
+    </Connector>
+);
 
 export default Projects;

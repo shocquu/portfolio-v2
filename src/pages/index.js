@@ -21,7 +21,7 @@ const IndexPage = () => {
                         <Hero />
                         <About />
                         <Featured />
-                        {/* <Projects /> */}
+                        <Projects />
                         <Contact />
                         <Footer />
                     </LazyComponent>

@@ -1,14 +1,15 @@
 ---
-date: '05/2021'
+date: '2021/05'
 title: 'Top Movies Database'
 repo: ''
 external: ''
 tags:
     - ReactJS
     - Bootstrap
+    - Express
     - MySQL
 company: 'College Project'
 hidden: false
 ---
 
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum numquam blanditiis quaerat repellendus, fugit deserunt tempore ratione ex sequi laborum molestias odio cumque totam repellat soluta natus labore veritatis aspernatur?
+A collection of movies stored in a MySQL database, presented in an elegant way using React and Bootstrap.

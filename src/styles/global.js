@@ -52,6 +52,15 @@ const GlobalStyle = createGlobalStyle`
         margin: 0 auto;
         padding-bottom: 150px;
 
+        /* Anchor padding */
+        &::before {
+            content: ' ';
+            display: block;
+            height: 10vh;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
         @media screen and (${({ theme }) => theme.breakpoints.xl}) {
             grid-column: 2 / 12 !important;
         }

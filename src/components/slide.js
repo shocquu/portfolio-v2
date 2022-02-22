@@ -79,8 +79,8 @@ const Slide = ({ image, alt, direction }) => {
             <GatsbyImage
                 image={image}
                 alt={alt}
-                objectFit='cover'
                 loading='lazy'
+                objectFit='cover'
             />
         </Wrapper>
     );

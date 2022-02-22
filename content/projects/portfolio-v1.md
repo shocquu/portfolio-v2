@@ -1,7 +1,7 @@
 ---
-date: '06/2019'
+date: '2019/06'
 title: 'Portfolio v1'
-repo: ''
+repo: 'https://github.com/shocquu/portfolio-v1'
 external: ''
 tags:
     - jQuery
@@ -12,4 +12,4 @@ company: 'Personal Project'
 hidden: false
 ---
 
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum numquam blanditiis quaerat repellendus, fugit deserunt tempore ratione ex sequi laborum molestias odio cumque totam repellat soluta natus labore veritatis aspernatur?
+Portfolio made for freelance graphic designer work.
