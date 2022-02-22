@@ -6,6 +6,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { Layout, Button } from '../components';
 
 const Title = styled.h1`
+    font-size: 16rem;
     font-size: clamp(100px, 25vw, 200px);
     color: var(--primary);
     position: relative;
@@ -14,12 +15,14 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.h2`
+    font-size: 3em;
     font-size: clamp(25px, 10vw, 50px);
     color: var(--textPrimary);
     font-weight: 400;
 `;
 
 const Shruggie = styled.span`
+    font-size: 3em;
     font-size: clamp(40px, 15vw, 60px);
     color: var(--textPrimary);
 `;
@@ -51,9 +54,7 @@ const NotFoundPage = () => {
                             <Shruggie>¯\_(ツ)_/¯</Shruggie>
                             <Title>404</Title>
                             <Subtitle>It looks empty to me</Subtitle>
-                            <Button>
-                                <Link to='/'>Go home</Link>
-                            </Button>
+                            <Button href='/'>Go home</Button>
                         </Page404>
                     </CSSTransition>
                 )}

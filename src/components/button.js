@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
 const ContainedButton = css`
@@ -47,17 +48,33 @@ const StyledLink = styled.a`
     ${SharedStyles}
 `;
 
+const StyledGatsbyLink = styled(Link)`
+    ${SharedStyles}
+`;
+
 const Button = ({ href, variant, color, children, ...props }) =>
     href ? (
-        <StyledLink
-            href={href}
-            role='button'
-            variant={variant}
-            color={color}
-            {...props}
-        >
-            {children}
-        </StyledLink>
+        href === '/' ? (
+            <StyledGatsbyLink
+                to={href}
+                role='button'
+                variant={variant}
+                color={color}
+                {...props}
+            >
+                {children}
+            </StyledGatsbyLink>
+        ) : (
+            <StyledLink
+                href={href}
+                role='button'
+                variant={variant}
+                color={color}
+                {...props}
+            >
+                {children}
+            </StyledLink>
+        )
     ) : (
         <StyledButton role='button' variant={variant} color={color} {...props}>
             {children}
