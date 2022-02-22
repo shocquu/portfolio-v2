@@ -12,4 +12,4 @@ company: 'Personal Project'
 hidden: false
 ---
 
-Portfolio made for freelance graphic designer work.
+Portfolio made for freelance graphic design work.

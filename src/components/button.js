@@ -14,7 +14,7 @@ const ContainedButton = css`
 
 const OutlinedButton = css`
     font-weight: 600;
-    color: ${({ color }) => (color ? color : 'var(--primary)')};
+    color: ${({ color }) => (color ? color : 'var(--primaryLight)')};
     border: ${({ color }) =>
         color ? `1px solid ${color}` : '1px solid var(--primary)'};
 

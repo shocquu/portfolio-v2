@@ -37,7 +37,7 @@ const Email = styled.a`
     right: ${({ theme }) => theme.spacing(5)};
     font-family: var(--fontSerif);
     transition: var(--transition);
-    color: var(--primary);
+    color: var(--primaryLight);
     font-size: 14px;
     z-index: 5;
     position: fixed;

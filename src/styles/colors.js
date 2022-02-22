@@ -4,7 +4,7 @@ const colors = {
     fiord: '#3e4264',
     mirage: '#1b1f3a',
     mandy: '#d14449',
-    mandyLighter: '#d6575c',
+    mandyLighter: '#f3494c',
     mandyDarker: '#bc3d42',
     emerald: '#56d678',
     emeraldLighter: '#67da86',

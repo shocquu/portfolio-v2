@@ -12,11 +12,11 @@ const Frame = styled.footer`
     a {
         ${({ theme }) => theme.mixins.link};
         ${({ theme }) => theme.mixins.underline};
-        color: var(--primary);
+        color: var(--primaryLight);
     }
 
     span {
-        color: var(--primary);
+        color: var(--primaryLight);
     }
 `;
 

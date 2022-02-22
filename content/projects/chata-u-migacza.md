@@ -10,4 +10,4 @@ company: 'Freelance Work'
 hidden: false
 ---
 
-<i>Chata u Migacza</i> is a special place for their guests. Desirably located near Biała Niżna in Poland, this place has a lot to offer. Arrange your wedding in the harmony of nature, a business meeting, or any important for you event.
+<i>Chata u Migacza</i> is a special place for their guests. Desirably located near Biała Niżna in Poland, this place has a lot to offer. Arrange your wedding, a business meeting, or any significant event for you — all in harmony with nature.
